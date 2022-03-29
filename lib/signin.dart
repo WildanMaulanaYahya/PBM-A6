@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(230, 10, 0, 30),
                   child: Image.asset(
                     'images/signup.png',
-                    scale: 0.8,
+                    scale: 1,
                   ),
                 ),
                 Container(
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                   child: Column(
                     children: [
                       const Padding(
-                        padding: EdgeInsets.fromLTRB(10, 20, 300, 0),
+                        padding: EdgeInsets.fromLTRB(10, 20, 300, 10),
                         child: Text(
                           "Daftar",
                           style: TextStyle(
@@ -53,8 +53,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
+                        padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -65,8 +64,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
+                        padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -77,8 +75,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
+                        padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -89,8 +86,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
+                        padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
