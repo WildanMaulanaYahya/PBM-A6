@@ -62,6 +62,18 @@ flutter:
     - images/logo.jpeg
     - images/login.png
     - images/signup.png
+    - images/home.png
+    - images/bibitkedelai.png
+    - images/bibitpadi.png
+    - images/biji1.png
+    - images/biji2.png
+    - images/biji3.png
+    - images/biji4.png
+    - images/biji5.png
+    - images/biji6.png
+    - images/bijikopi.png
+    - images/cartsukses.png
+    - images/profil.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
