@@ -44,7 +44,7 @@ class NewWidget extends StatelessWidget {
               ],
             // ignore: prefer_const_literals_to_create_immutables
             ),Column(children: [
-              const Text("tes 123")
+              const Text("tes 1223")
             ],)
           ],
         )
