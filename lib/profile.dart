@@ -44,7 +44,9 @@ class NewWidget extends StatelessWidget {
               ],
             // ignore: prefer_const_literals_to_create_immutables
             ),Column(children: [
-              const Text("tes 1223")
+              const Text("tes 1223"),
+              const Padding(padding:EdgeInsets.fromLTRB(100, 500, 100, 500) )
+            
             ],)
           ],
         )
