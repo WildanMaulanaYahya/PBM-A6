@@ -25,7 +25,7 @@ class MyApp  extends StatelessWidget {
                 child: Text("Proses Pembayaran Selesai",
                 style:TextStyle(fontFamily:" Poopins",
                 fontWeight: FontWeight.bold, 
-                fontSize:30,
+                fontSize:20,
                 color:Colors.white),
                 ),
               ), Padding(
@@ -33,7 +33,7 @@ class MyApp  extends StatelessWidget {
                 child: Text("Kembali Ke Home",
                 style:TextStyle(fontFamily:" Poopins",
                 fontWeight: FontWeight.bold,  
-                fontSize:28,
+                fontSize:18,
                 color:Colors.white),
                 ),
               ),
