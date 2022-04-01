@@ -13,9 +13,10 @@ class SignUp extends StatelessWidget {
         body: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.fromLTRB(40, 60, 50, 0),
+              padding: EdgeInsets.fromLTRB(10, 60, 140, 10),
               child: Text(
-                  "Temukan Penjualan Bibit Terbaik. Semua Bibit Berkualitass.",
+                  '''Temukan Penjualan Bibit Terbaik.
+Semua Bibit Berkualitass.''',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

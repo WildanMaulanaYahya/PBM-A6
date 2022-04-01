@@ -17,7 +17,7 @@ class SignIn extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(50, 70, 50, 0),
               child: Text("Cari Bibit Berkualitas Bersama Metabit app",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 255, 255, 255),
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins',
                       fontSize: 16)),
