@@ -14,8 +14,9 @@ class SignIn extends StatelessWidget {
         body: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.fromLTRB(50, 70, 50, 0),
-              child: Text("Cari Bibit Berkualitas Bersama Metabit app",
+              padding: EdgeInsets.fromLTRB(10, 70, 100, 0),
+              child: Text('''Cari Bibit Berkualitas Bersama 
+Metabit app''',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontWeight: FontWeight.bold,
@@ -36,7 +37,7 @@ class SignIn extends StatelessWidget {
                   child: Column(
                     children: [
                       const Padding(
-                        padding: EdgeInsets.fromLTRB(0, 20, 270, 0),
+                        padding: EdgeInsets.fromLTRB(0, 20, 290, 0),
                         child: Text(
                           "Masuk",
                           style: TextStyle(
