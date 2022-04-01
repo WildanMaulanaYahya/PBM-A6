@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/sign_in.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Dashboard extends StatelessWidget {
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +58,12 @@ class MyApp extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           )),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const SignIn();
+                        }));
+                      },
                       child: const Text(
                         "Next",
                         style: TextStyle(

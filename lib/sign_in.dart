@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home.dart';
+import 'package:flutter_application_1/signup.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SignIn extends StatelessWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +92,12 @@ class MyApp extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   )),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: ((context) {
+                                  return const Home();
+                                })));
+                              },
                               child: const Text(
                                 "Sign In",
                                 style: TextStyle(
@@ -104,11 +107,18 @@ class MyApp extends StatelessWidget {
                               )),
                         ),
                       ),
-                      const Text("Or Sign Up Here",
-                          style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 13,
-                              color: Color(0xff8F8F8F)))
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const SignUp();
+                            }));
+                          },
+                          child: const Text("Or Sign Up Here",
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 13,
+                                  color: Color(0xff8F8F8F))))
                     ],
                   ),
                 ))
