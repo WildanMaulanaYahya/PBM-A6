@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -7,365 +9,471 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme:
+          ThemeData(appBarTheme: const AppBarTheme(color: Color(0xff3A8C6E))),
       home: Scaffold(
-        backgroundColor: const Color(0xff3A8C6E),
-        body: SafeArea(
+        backgroundColor: Color(0xff3A8C6E),
+        appBar: AppBar(
+          toolbarHeight: 80,
+          title: Container(
+            width: double.infinity,
+            height: 34,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+                child: TextField(
+              style: const TextStyle(fontFamily: "Poppins", fontSize: 12),
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  contentPadding: EdgeInsets.all(0),
+                  hintText: 'Ayo Cari Bibitmu',
+                  prefixIcon: const Icon(Icons.search)),
+            )),
+          ),
+          elevation: 0.0,
+          leading: Container(
+            margin: EdgeInsets.only(top: 6),
+            child: Builder(
+              builder: (context) {
+                return IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('images/filter.png'),
+                );
+              },
+            ),
+          ),
+        ),
+        body: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                padding: const EdgeInsets.all(10),
                 child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Image.asset(
-                        'images/filter.png',
-                      ),
-                      iconSize: 40,
-                      onPressed: () {},
-                    ),
-                    Expanded(
-                      child: SizedBox(
-                        height: 35,
-                        child: TextField(
-                          style: const TextStyle(
-                              fontFamily: "Poppins", fontSize: 12),
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              labelText: 'Ayo Cari Bibitmu',
-                              prefixIcon: const Icon(Icons.search)),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 30),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15)),
-                      height: 72,
-                      width: 168,
-                      child: const Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          '''Hallo Wildan, 
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15)),
+                        height: 72,
+                        width: 168,
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text(
+                            '''Hallo Wildan, 
 Mau Belanja Bibit Tanaman apa hari ini ? ''',
-                          overflow: TextOverflow.clip,
-                          style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500),
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50),
-                      child: Image.asset(
-                        'images/home.png',
-                        scale: 0.9,
-                      ),
-                    )
-                  ],
-                ),
+                      Image.asset('images/home.png')
+                    ]),
               ),
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(25),
-                          topLeft: Radius.circular(25)),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(25),
+                      topLeft: Radius.circular(25)),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 40,
                     ),
-                    child: Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 30),
-                              child: Column(
-                                children: <Widget>[
-                                  Image.asset('images/biji1.png'),
-                                  const Text('Biji 1',
-                                      style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                      )),
-                                  const Text('Rp 50.000',
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xff4F9E2A))),
-                                  Row(
-                                    children: const <Widget>[
-                                      Icon(
-                                        Icons.star_rate,
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        Icons.star_rate,
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        Icons.star_rate,
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        Icons.star_rate_outlined,
-                                        color: Colors.yellow,
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 30),
-                              child: Column(
-                                children: <Widget>[
-                                  Image.asset('images/biji2.png'),
-                                  const Text('Biji 2',
-                                      style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                      )),
-                                  const Text('Rp 50.000',
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xff4F9E2A))),
-                                  Row(
-                                    children: const <Widget>[
-                                      Icon(
-                                        Icons.star_rate,
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        Icons.star_rate,
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        Icons.star_rate,
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        Icons.star_rate_outlined,
-                                        color: Colors.yellow,
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 30),
-                              child: Column(
-                                children: <Widget>[
-                                  Image.asset('images/biji3.png'),
-                                  const Text('Biji 3',
-                                      style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                      )),
-                                  const Text('Rp 50.000',
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xff4F9E2A))),
-                                  Row(children: const <Widget>[
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    )
-                                  ])
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 20),
-                          child: Divider(
-                            color: Color(0xffABABAE),
-                            thickness: 4,
-                            indent: 30,
-                            endIndent: 30,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              children: <Widget>[
-                                Image.asset('images/biji4.png'),
-                                const Text('Biji 4',
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 16,
-                                    )),
-                                const Text('Rp 50.000',
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xff4F9E2A))),
-                                Row(
-                                  children: const <Widget>[
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Image.asset('images/biji5.png'),
-                                const Text('Biji 5',
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 16,
-                                    )),
-                                const Text('Rp 50.000',
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xff4F9E2A))),
-                                Row(
-                                  children: const <Widget>[
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate_outlined,
-                                      color: Colors.yellow,
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Image.asset('images/biji6.png'),
-                                const Text('Biji 6',
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 16,
-                                    )),
-                                const Text('Rp 50.000',
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xff4F9E2A))),
-                                Row(
-                                  children: const <Widget>[
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate_outlined,
-                                      color: Colors.yellow,
-                                    ),
-                                    Icon(
-                                      Icons.star_rate_outlined,
-                                      color: Colors.yellow,
-                                    )
-                                  ],
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji1.png'),
+                            const Text('Biji 1',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
                                 ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                )
                               ],
                             )
                           ],
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 20),
-                          child: Divider(
-                            color: Color(0xffABABAE),
-                            thickness: 4,
-                            indent: 30,
-                            endIndent: 30,
-                          ),
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji2.png'),
+                            const Text('Biji 2',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji3.png'),
+                            const Text('Biji 3',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(children: const <Widget>[
+                              Icon(
+                                Icons.star_rate,
+                                color: Colors.yellow,
+                              ),
+                              Icon(
+                                Icons.star_rate,
+                                color: Colors.yellow,
+                              ),
+                              Icon(
+                                Icons.star_rate,
+                                color: Colors.yellow,
+                              ),
+                              Icon(
+                                Icons.star_rate,
+                                color: Colors.yellow,
+                              )
+                            ])
+                          ],
                         )
                       ],
                     ),
-                  ))
+                    SizedBox(height: 20),
+                    Divider(
+                      color: Color(0xffABABAE),
+                      thickness: 4,
+                      indent: 30,
+                      endIndent: 30,
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji4.png'),
+                            const Text('Biji 4',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji5.png'),
+                            const Text('Biji 5',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji6.png'),
+                            const Text('Biji 6',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Divider(
+                      color: Color(0xffABABAE),
+                      thickness: 4,
+                      indent: 30,
+                      endIndent: 30,
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji4.png'),
+                            const Text('Biji 4',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji5.png'),
+                            const Text('Biji 5',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Image.asset('images/biji6.png'),
+                            const Text('Biji 6',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16,
+                                )),
+                            const Text('Rp 50.000',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff4F9E2A))),
+                            Row(
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star_rate_outlined,
+                                  color: Colors.yellow,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
+            //  _widgetOptions.elementAt(_selectedIndex),
           ),
         ),
-        bottomNavigationBar: Container(
-            height: 60,
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.home),
-                  onPressed: () {},
-                  iconSize: 40,
-                ),
-                IconButton(
-                    icon: const Icon(Icons.shopping_bag_rounded),
-                    onPressed: () {},
-                    iconSize: 40),
-                IconButton(
-                    icon: const Icon(Icons.account_circle),
-                    onPressed: () {},
-                    iconSize: 40)
-              ],
-            )),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_bag_rounded),
+              // activeIcon: Icon(Icons.select_all),
+              label: 'Cart',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              // activeIcon: Icon(Icons.select_all),
+              label: 'Profil',
+            ),
+          ],
+          // currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          // onTap: _onItemTapped,
+        ),
       ),
     );
   }
