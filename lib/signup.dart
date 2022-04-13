@@ -10,12 +10,12 @@ class SignUp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color(0xff3A8C6E),
-        body: Column(
+        body: SafeArea(
+            child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.fromLTRB(10, 60, 140, 10),
-              child: Text(
-                  '''Temukan Penjualan Bibit Terbaik.
+              padding: EdgeInsets.fromLTRB(10, 30, 100, 10),
+              child: Text('''Temukan Penjualan Bibit Terbaik.
 Semua Bibit Berkualitass.''',
                   style: TextStyle(
                       color: Colors.white,
@@ -84,7 +84,7 @@ Semua Bibit Berkualitass.''',
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 10, 30, 15),
+                        padding: const EdgeInsets.fromLTRB(30, 10, 30, 30),
                         child: TextField(
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -94,38 +94,35 @@ Semua Bibit Berkualitass.''',
                               suffixIcon: const Icon(Icons.visibility)),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-                        child: SizedBox(
-                          width: 350,
-                          height: 50,
-                          child: TextButton(
-                              style: TextButton.styleFrom(
-                                  backgroundColor: const Color(0xff3A8C6E),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  )),
-                              onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const Home();
-                                }));
-                              },
-                              child: const Text(
-                                "Sign Up",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                ),
-                              )),
-                        ),
+                      SizedBox(
+                        width: 334,
+                        height: 50,
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                                backgroundColor: const Color(0xff3A8C6E),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                )),
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return const Home();
+                              }));
+                            },
+                            child: const Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            )),
                       ),
                     ],
                   ),
                 ))
           ],
-        ),
+        )),
       ),
     );
   }
