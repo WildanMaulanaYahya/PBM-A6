@@ -7,6 +7,8 @@ void main() {
 }
 
 class logout extends StatelessWidget {
+  get children => null;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,15 +17,30 @@ class logout extends StatelessWidget {
         backgroundColor: Color(0xFF3A8C6E),
         body: Center(
             child: Container(
-                color: Color.fromARGB(255, 255, 255, 255),
                 width: 350,
-                height: 100,
-                child: Text(
+                height: 160,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                color: Color.fromARGB(255, 255, 255, 255)),
+                
+                child: Column(children: [Text(
                   "Apakah Anda Yakin Ingin Log out",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, fontFamily: "poppins"),
+                  style: TextStyle(fontSize: 18, fontFamily: "poppins"))
+                  
+                  ,ElevatedButton(onPressed: (){},
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF9CD94E)
+                  ),
+                  
+                  
+                   child: const Text("Iya",
+                   style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,)))],)
+                
+                  ,
                 ))),
-      ),
+      
     );
   }
 }
