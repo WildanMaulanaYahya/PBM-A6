@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'add_to_cart.dart';
+
 class Barang extends StatelessWidget {
   const Barang({Key? key}) : super(key: key);
 
@@ -131,6 +133,60 @@ class Barang extends StatelessWidget {
             ),
           ),
         ]),
+        bottomNavigationBar: BottomAppBar(
+            child: Container(
+                color: Color(0xffFCD857),
+                child: Stack(
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(width: 10),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Review',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Poppins",
+                                fontSize: 14),
+                          ),
+                        ),
+                        SizedBox(width: 30),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.chat_bubble_outline)),
+                        SizedBox(width: 30),
+                        IconButton(
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return AddtoCart();
+                                  });
+                            },
+                            icon: Icon(Icons.shopping_cart_outlined)),
+                        SizedBox(width: 30),
+                      ],
+                    ),
+                    Positioned(
+                      right: 0,
+                      child: Container(
+                        color: Color(0xff3A8C6E),
+                        width: 132,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Beli Sekarang',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Poppins",
+                                fontSize: 14),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ))),
       ),
     );
   }
