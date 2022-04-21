@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/barang.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class Home extends StatelessWidget {
       theme:
           ThemeData(appBarTheme: const AppBarTheme(color: Color(0xff3A8C6E))),
       home: Scaffold(
-        backgroundColor: Color(0xff3A8C6E),
+        backgroundColor: const Color(0xff3A8C6E),
         appBar: AppBar(
           toolbarHeight: 80,
           title: Container(
@@ -20,7 +19,7 @@ class Home extends StatelessWidget {
             height: 34,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Center(
                 child: TextField(
@@ -30,14 +29,14 @@ class Home extends StatelessWidget {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  contentPadding: EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(0),
                   hintText: 'Ayo Cari Bibitmu',
                   prefixIcon: const Icon(Icons.search)),
             )),
           ),
           elevation: 0.0,
           leading: Container(
-            margin: EdgeInsets.only(top: 6),
+            margin: const EdgeInsets.only(top: 6),
             child: Builder(
               builder: (context) {
                 return IconButton(
@@ -78,7 +77,7 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                       Image.asset('images/home.png')
                     ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -90,7 +89,7 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Row(
@@ -98,7 +97,10 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                       children: [
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji1.png'),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset('images/biji1.png'),
+                            ),
                             const Text('Biji 1',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -134,7 +136,10 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                         ),
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji2.png'),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset('images/biji2.png'),
+                            ),
                             const Text('Biji 2',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -170,7 +175,10 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                         ),
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji3.png'),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset('images/biji3.png'),
+                            ),
                             const Text('Biji 3',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -204,56 +212,69 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                         )
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Divider(
+                    const SizedBox(height: 20),
+                    const Divider(
                       color: Color(0xffABABAE),
                       thickness: 4,
                       indent: 30,
                       endIndent: 30,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          children: <Widget>[
-                            Image.asset('images/biji4.png'),
-                            const Text('Biji 4',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Barang()),
+                            );
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset('images/biji4.png')),
+                              const Text('Biji 4',
+                                  style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            )
-                          ],
+                                  )),
+                              const Text('Rp 50.000',
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff4F9E2A))),
+                              Row(
+                                children: const <Widget>[
+                                  Icon(
+                                    Icons.star_rate,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star_rate,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star_rate,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star_rate,
+                                    color: Colors.yellow,
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji5.png'),
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset('images/biji5.png')),
                             const Text('Biji 5',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -289,7 +310,10 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                         ),
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji6.png'),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset('images/biji6.png'),
+                            ),
                             const Text('Biji 6',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -325,20 +349,22 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Divider(
+                    const SizedBox(height: 20),
+                    const Divider(
                       color: Color(0xffABABAE),
                       thickness: 4,
                       indent: 30,
                       endIndent: 30,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji4.png'),
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset('images/biji4.png')),
                             const Text('Biji 4',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -374,7 +400,9 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                         ),
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji5.png'),
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset('images/biji5.png')),
                             const Text('Biji 5',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -405,12 +433,15 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                                   color: Colors.yellow,
                                 )
                               ],
-                            )
+                            ),
                           ],
                         ),
                         Column(
                           children: <Widget>[
-                            Image.asset('images/biji6.png'),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset('images/biji6.png'),
+                            ),
                             const Text('Biji 6',
                                 style: TextStyle(
                                   fontFamily: "Poppins",
@@ -445,6 +476,13 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                           ],
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 20),
+                    const Divider(
+                      color: Color(0xffABABAE),
+                      thickness: 4,
+                      indent: 30,
+                      endIndent: 30,
                     ),
                   ],
                 ),
