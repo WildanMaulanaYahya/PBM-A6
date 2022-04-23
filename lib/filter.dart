@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
@@ -10,20 +8,20 @@ class Filter extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Drawer(
-        backgroundColor: Color(0xff3A8C6E),
+        backgroundColor: const Color(0xff3A8C6E),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   Image.asset(
                     'images/filter.png',
                   ),
-                  SizedBox(width: 10),
-                  SizedBox(
+                  const SizedBox(width: 10),
+                  const SizedBox(
                     height: 30,
                     child: Text(
                       'Filter',
@@ -37,8 +35,8 @@ class Filter extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 'Kategori',
                 style: TextStyle(
                   color: Colors.white,
@@ -47,16 +45,16 @@ class Filter extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               GroupButton(
                 options: GroupButtonOptions(
                     borderRadius: BorderRadius.circular(10),
-                    selectedColor: Color(0xffDADADA),
-                    selectedTextStyle: TextStyle(
+                    selectedColor: const Color(0xffDADADA),
+                    selectedTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
                     ),
-                    unselectedTextStyle: TextStyle(
+                    unselectedTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
                     ),
@@ -66,10 +64,10 @@ class Filter extends StatelessWidget {
                     elevation: 8),
                 maxSelected: 1,
                 isRadio: false,
-                buttons: ["Bunga", "Sayuran", "Buah", "Tanaman"],
+                buttons: const ["Bunga", "Sayuran", "Buah", "Tanaman"],
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Rating',
                 style: TextStyle(
                   color: Colors.white,
@@ -78,16 +76,16 @@ class Filter extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               GroupButton(
                 options: GroupButtonOptions(
                     borderRadius: BorderRadius.circular(10),
-                    selectedColor: Color(0xffDADADA),
-                    selectedTextStyle: TextStyle(
+                    selectedColor: const Color(0xffDADADA),
+                    selectedTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
                     ),
-                    unselectedTextStyle: TextStyle(
+                    unselectedTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
                     ),
@@ -98,7 +96,7 @@ class Filter extends StatelessWidget {
                     elevation: 8),
                 maxSelected: 1,
                 isRadio: false,
-                buttons: [
+                buttons: const [
                   "Bintang 1",
                   "Bintang 2",
                   "Bintang 3",
@@ -106,8 +104,8 @@ class Filter extends StatelessWidget {
                   "Bintang 5"
                 ],
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Rentang Harga',
                 style: TextStyle(
                   color: Colors.white,
@@ -116,16 +114,16 @@ class Filter extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               GroupButton(
                 options: GroupButtonOptions(
                     borderRadius: BorderRadius.circular(10),
-                    selectedColor: Color(0xffDADADA),
-                    selectedTextStyle: TextStyle(
+                    selectedColor: const Color(0xffDADADA),
+                    selectedTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
                     ),
-                    unselectedTextStyle: TextStyle(
+                    unselectedTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
                     ),
@@ -134,13 +132,13 @@ class Filter extends StatelessWidget {
                     elevation: 8),
                 maxSelected: 1,
                 isRadio: false,
-                buttons: [
+                buttons: const [
                   "0 - 50.000",
                   "50.000 - 75.000",
                   "0 - 100.000",
                 ],
               ),
-              SizedBox(height: 150),
+              const SizedBox(height: 150),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -151,7 +149,7 @@ class Filter extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           )),
-                      child: Text(
+                      child: const Text(
                         "Reset",
                         style: TextStyle(
                             color: Colors.black,
@@ -159,7 +157,7 @@ class Filter extends StatelessWidget {
                             fontFamily: "Poppins",
                             fontSize: 12),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   TextButton(
@@ -171,7 +169,7 @@ class Filter extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           )),
-                      child: Text(
+                      child: const Text(
                         "Apply",
                         style: TextStyle(
                             color: Colors.black,
