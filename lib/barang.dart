@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/review.dart';
 
 import 'add_to_cart.dart';
 
@@ -25,7 +24,7 @@ class Barang extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back_rounded),
+                  icon: const Icon(Icons.arrow_back_rounded),
                   color: Colors.white,
                 ),
               )
@@ -40,7 +39,7 @@ class Barang extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'Biji 4',
                           style: TextStyle(
@@ -66,7 +65,7 @@ class Barang extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Text(
+                        const Text(
                           'Rp 50.000',
                           style: TextStyle(
                               fontFamily: "Poppins",
@@ -75,7 +74,7 @@ class Barang extends StatelessWidget {
                               color: Color(0xff4f9E2A)),
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.star_rate,
                               color: Color(0xffFFD233),
@@ -107,7 +106,7 @@ class Barang extends StatelessWidget {
                   thickness: 4,
                   endIndent: 3,
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Deskripsi',
@@ -118,10 +117,10 @@ class Barang extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Text(
+                const Text(
                   '''Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa''',
                   textAlign: TextAlign.justify,
                   style: TextStyle(
@@ -135,15 +134,21 @@ class Barang extends StatelessWidget {
         ]),
         bottomNavigationBar: BottomAppBar(
             child: Container(
-                color: Color(0xffFCD857),
+                color: const Color(0xffFCD857),
                 child: Stack(
                   children: [
                     Row(
                       children: [
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         TextButton(
-                          onPressed: () {},
-                          child: Text(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Review()),
+                            );
+                          },
+                          child: const Text(
                             'Review',
                             style: TextStyle(
                                 color: Colors.black,
@@ -151,31 +156,31 @@ class Barang extends StatelessWidget {
                                 fontSize: 14),
                           ),
                         ),
-                        SizedBox(width: 30),
+                        const SizedBox(width: 30),
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.chat_bubble_outline)),
-                        SizedBox(width: 30),
+                            icon: const Icon(Icons.chat_bubble_outline)),
+                        const SizedBox(width: 30),
                         IconButton(
                             onPressed: () {
                               showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
-                                    return AddtoCart();
+                                    return const AddtoCart();
                                   });
                             },
-                            icon: Icon(Icons.shopping_cart_outlined)),
-                        SizedBox(width: 30),
+                            icon: const Icon(Icons.shopping_cart_outlined)),
+                        const SizedBox(width: 30),
                       ],
                     ),
                     Positioned(
                       right: 0,
                       child: Container(
-                        color: Color(0xff3A8C6E),
+                        color: const Color(0xff3A8C6E),
                         width: 132,
                         child: TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             'Beli Sekarang',
                             style: TextStyle(
                                 color: Colors.white,
