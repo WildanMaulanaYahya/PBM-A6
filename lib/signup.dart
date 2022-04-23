@@ -9,6 +9,7 @@ class SignUp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xff3A8C6E),
         body: SafeArea(
             child: Column(

@@ -9,48 +9,60 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color(0xff3A8C6E),
-        body: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(10, 70, 100, 0),
-              child: Text('''Cari Bibit Berkualitas Bersama 
-Metabit app''',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Poppins',
-                      fontSize: 16)),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(150, 0, 0, 50),
-              child: Image.asset('images/login.png'),
-            ),
-            Expanded(
+      home: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: const Color(0xff3A8C6E),
+          body: Column(
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              const Align(
+                alignment: FractionalOffset(0.2, 0.6),
+                child: SizedBox(
+                  width: 260,
+                  child: Text('Cari Bibit Berkualitas Bersama Metabit app',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Poppins',
+                          fontSize: 16)),
+                ),
+              ),
+              Align(
+                  alignment: const FractionalOffset(0.9, 0.1),
+                  child: Image.asset(
+                    'images/login.png',
+                    scale: 0.8,
+                  )),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
                 flex: 1,
                 child: Container(
                   decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius:
                           BorderRadius.only(topLeft: Radius.circular(35))),
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(0, 20, 290, 0),
-                        child: Text(
-                          "Masuk",
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(right: 259),
+                          child: Text(
+                            "Masuk",
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 30),
-                        child: TextField(
+                        const SizedBox(height: 20),
+                        TextField(
                           style: const TextStyle(
                               fontFamily: "Poppins", fontSize: 15),
                           decoration: InputDecoration(
@@ -60,10 +72,8 @@ Metabit app''',
                             hintText: 'Email',
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TextField(
+                        const SizedBox(height: 30),
+                        TextField(
                           style: const TextStyle(
                               fontFamily: "Poppins", fontSize: 15),
                           decoration: InputDecoration(
@@ -71,20 +81,22 @@ Metabit app''',
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               hintText: 'Password',
-                              suffixIcon: const Icon(Icons.visibility)),
+                              suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.visibility),
+                              )),
                         ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(250, 20, 0, 20),
-                        child: Text("Lupa Password ?",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 13,
-                                color: Color(0xff8F8F8F))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                        child: SizedBox(
+                        const SizedBox(height: 10),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 200),
+                          child: Text("Lupa Password ?",
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 13,
+                                  color: Color(0xff8F8F8F))),
+                        ),
+                        const SizedBox(height: 10),
+                        SizedBox(
                           width: 350,
                           height: 50,
                           child: TextButton(
@@ -107,23 +119,25 @@ Metabit app''',
                                 ),
                               )),
                         ),
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return const SignUp();
-                            }));
-                          },
-                          child: const Text("Or Sign Up Here",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 13,
-                                  color: Color(0xff8F8F8F))))
-                    ],
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return const SignUp();
+                              }));
+                            },
+                            child: const Text("Or Sign Up Here",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 13,
+                                    color: Color(0xff8F8F8F))))
+                      ],
+                    ),
                   ),
-                ))
-          ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
