@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/barang.dart';
 
-class Home extends StatelessWidget {
+import 'filter.dart';
+
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,6 +19,7 @@ class Home extends StatelessWidget {
       theme:
           ThemeData(appBarTheme: const AppBarTheme(color: Color(0xff3A8C6E))),
       home: Scaffold(
+        key: _scaffoldKey,
         backgroundColor: const Color(0xff3A8C6E),
         appBar: AppBar(
           toolbarHeight: 80,
@@ -40,13 +49,16 @@ class Home extends StatelessWidget {
             child: Builder(
               builder: (context) {
                 return IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _scaffoldKey.currentState!.openDrawer();
+                  },
                   icon: Image.asset('images/filter.png'),
                 );
               },
             ),
           ),
         ),
+        drawer: const Filter(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -81,6 +93,7 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                 height: 20,
               ),
               Container(
+                height: MediaQuery.of(context).size.height,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -357,133 +370,6 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                       endIndent: 30,
                     ),
                     const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: <Widget>[
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset('images/biji4.png')),
-                            const Text('Biji 4',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset('images/biji5.png')),
-                            const Text('Biji 5',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset('images/biji6.png'),
-                            ),
-                            const Text('Biji 6',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    const Divider(
-                      color: Color(0xffABABAE),
-                      thickness: 4,
-                      indent: 30,
-                      endIndent: 30,
-                    ),
                   ],
                 ),
               ),
@@ -510,7 +396,10 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
           ],
           // currentIndex: _selectedIndex,
           selectedItemColor: Colors.black,
-          // onTap: _onItemTapped,
+          unselectedItemColor: Colors.grey,
+
+          //  onTap: _onTap,
+          // currentIndex: _currentTabIndex,
         ),
       ),
     );
