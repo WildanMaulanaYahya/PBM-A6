@@ -9,11 +9,11 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: const Color(0xff3A8C6E),
-          body: Column(
+      home: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: const Color(0xff3A8C6E),
+        body: SafeArea(
+          child: Column(
             children: [
               const SizedBox(
                 height: 50,
@@ -106,7 +106,7 @@ class SignIn extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(8),
                                   )),
                               onPressed: () {
-                                Navigator.push(context,
+                                Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: ((context) {
                                   return const Home();
                                 })));
@@ -121,7 +121,7 @@ class SignIn extends StatelessWidget {
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.push(context,
+                              Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return const SignUp();
                               }));

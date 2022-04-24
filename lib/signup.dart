@@ -105,7 +105,7 @@ Semua Bibit Berkualitass.''',
                                   borderRadius: BorderRadius.circular(8),
                                 )),
                             onPressed: () {
-                              Navigator.push(context,
+                              Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return const Home();
                               }));
