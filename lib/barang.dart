@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/review.dart';
 
 import 'add_to_cart.dart';
+import 'chat.dart';
 
 class Barang extends StatelessWidget {
   const Barang({Key? key}) : super(key: key);
@@ -158,7 +159,13 @@ class Barang extends StatelessWidget {
                         ),
                         const SizedBox(width: 30),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Chat()),
+                              );
+                            },
                             icon: const Icon(Icons.chat_bubble_outline)),
                         const SizedBox(width: 30),
                         IconButton(
