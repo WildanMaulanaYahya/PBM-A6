@@ -377,30 +377,6 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
             //  _widgetOptions.elementAt(_selectedIndex),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag_rounded),
-              // activeIcon: Icon(Icons.select_all),
-              label: 'Cart',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              // activeIcon: Icon(Icons.select_all),
-              label: 'Profil',
-            ),
-          ],
-          // currentIndex: _selectedIndex,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.grey,
-
-          //  onTap: _onTap,
-          // currentIndex: _currentTabIndex,
-        ),
       ),
     );
   }
