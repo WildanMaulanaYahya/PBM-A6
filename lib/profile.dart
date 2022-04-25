@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'dart:ui';
+import 'package:flutter_application_1/sign_in.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'package:flutter/material.dart';
@@ -16,7 +17,10 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   showAlert() async {
-    Alert(context: context, title: "RFLUTTEasdasdR", desc: "Flutadasdasdter is awesome.")
+    Alert(
+            context: context,
+            title: "RFLUTTEasdasdR",
+            desc: "Flutadasdasdter is awesome.")
         .show();
   }
 
@@ -157,7 +161,31 @@ class NewWidget extends StatelessWidget {
                   height: 50,
                   child: TextButton.icon(
                       onPressed: () {
-                        showAlert();
+                        CoolAlert.show(
+                          context: context,
+                          type: CoolAlertType.confirm,
+                          backgroundColor: Color.fromARGB(255, 175, 221, 243),
+                          title: 'apakah anda yakin ingin logout?',
+                          onConfirmBtnTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignIn()),
+                            );
+                          },
+                          onCancelBtnTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Profile()),
+                            );
+                          },
+                          cancelBtnTextStyle: TextStyle(
+                              color: Color.fromARGB(255, 221, 29, 29)),
+                          confirmBtnColor: Color.fromARGB(255, 136, 225, 139),
+                          confirmBtnTextStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                        );
                       },
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
@@ -184,5 +212,4 @@ class NewWidget extends StatelessWidget {
   }
 }
 
-void showAlert() {
-}
+void showAlert() {}
