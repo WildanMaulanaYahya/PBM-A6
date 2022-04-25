@@ -120,10 +120,62 @@ class Review extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              Expanded(
-                                  child: ListView(
-                                children: const [],
-                              ))
+                              const SizedBox(height: 30),
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      const SizedBox(width: 20),
+                                      Image.asset("images/profil.png"),
+                                      const SizedBox(width: 20),
+                                      Column(
+                                        children: [
+                                          const Text(
+                                            "Wildan Maulana",
+                                            style: TextStyle(
+                                                fontFamily: "poppins",
+                                                fontSize: 11,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Row(
+                                            children: const [
+                                              Icon(
+                                                Icons.star_rate,
+                                                color: Colors.yellow,
+                                              ),
+                                              Icon(
+                                                Icons.star_rate,
+                                                color: Colors.yellow,
+                                              ),
+                                              Icon(
+                                                Icons.star_rate,
+                                                color: Colors.yellow,
+                                              ),
+                                              Icon(
+                                                Icons.star_rate,
+                                                color: Colors.yellow,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(width: 100),
+                                      const Icon(Icons.thumb_up_alt_outlined),
+                                      const Icon(Icons.thumb_down_alt_outlined)
+                                    ],
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 60),
+                                    child: Text(
+                                        "Dolor aliquam amet vitae vel at nunc nisl."),
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Divider(
+                                    color: Color(0xffE2E2E8),
+                                    thickness: 4,
+                                  ),
+                                ],
+                              )
                             ],
                           ))),
                   Positioned(
