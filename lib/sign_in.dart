@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home.dart';
 import 'package:flutter_application_1/signup.dart';
+
+import 'bottom_navigation_bar.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -108,7 +109,7 @@ class SignIn extends StatelessWidget {
                               onPressed: () {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: ((context) {
-                                  return const Home();
+                                  return const BottomNav();
                                 })));
                               },
                               child: const Text(
