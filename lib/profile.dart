@@ -1,12 +1,24 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'dart:ui';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Logout.dart';
+import 'package:cool_alert/cool_alert.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  showAlert() async {
+    Alert(context: context, title: "RFLUTTEasdasdR", desc: "Flutadasdasdter is awesome.")
+        .show();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +156,9 @@ class NewWidget extends StatelessWidget {
                   width: 320,
                   height: 50,
                   child: TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        showAlert();
+                      },
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -168,4 +182,7 @@ class NewWidget extends StatelessWidget {
           ),
         ));
   }
+}
+
+void showAlert() {
 }
