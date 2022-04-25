@@ -2,11 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(logout());
-}
-
-class logout extends StatelessWidget {
+class Logout extends StatelessWidget {
   get children => null;
 
   @override
@@ -14,33 +10,30 @@ class logout extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xFF3A8C6E),
-        body: Center(
-            child: Container(
-                width: 350,
-                height: 160,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+          backgroundColor: Color(0xFF3A8C6E),
+          body: Center(
+              child: Container(
+            width: 350,
+            height: 160,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
                 color: Color.fromARGB(255, 255, 255, 255)),
-                
-                child: Column(children: [Text(
-                  "Apakah Anda Yakin Ingin Log out",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, fontFamily: "poppins"))
-                  
-                  ,ElevatedButton(onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF9CD94E)
-                  ),
-                  
-                  
-                   child: const Text("Iya",
-                   style: TextStyle(
+            child: Column(
+              children: [
+                Text("Apakah Anda Yakin Ingin Log out",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 18, fontFamily: "poppins")),
+                ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(primary: Color(0xFF9CD94E)),
+                    child: const Text("Iya",
+                        style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white,)))],)
-                
-                  ,
-                ))),
-      
+                          color: Colors.white,
+                        )))
+              ],
+            ),
+          ))),
     );
   }
 }
