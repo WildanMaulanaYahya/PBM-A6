@@ -1,8 +1,10 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Logout.dart';
 import 'package:flutter_application_1/dashboard.dart';
 import 'package:flutter_application_1/home.dart';
+import 'package:flutter_application_1/profile.dart';
 import 'package:flutter_application_1/signup.dart';
 
 void main() {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home:SignUp(),
     );
   }
 }

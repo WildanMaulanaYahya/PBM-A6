@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home.dart';
+import 'package:cool_alert/cool_alert.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -105,10 +106,19 @@ Semua Bibit Berkualitass.''',
                                   borderRadius: BorderRadius.circular(8),
                                 )),
                             onPressed: () {
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const Home();
-                              }));
+                              CoolAlert.show(
+                                  context: context,
+                                  type: CoolAlertType.success,
+                                  title: "Success!",
+                                  text: "Pendaftaran Berhasil",
+                                  backgroundColor:Color.fromARGB(255, 154, 195, 180),
+                                  confirmBtnColor:Color(0xff3A8C6E),
+                                  onConfirmBtnTap: () {
+                                    Navigator.pushReplacement(context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return const Home();
+                                    }));
+                                  });
                             },
                             child: const Text(
                               "Sign Up",
