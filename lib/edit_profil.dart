@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ubah_alamat.dart';
-
 import 'editprofil_alamat.dart';
 
 class EditProfile extends StatelessWidget {
