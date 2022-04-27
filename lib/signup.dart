@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home.dart';
+import 'package:flutter_application_1/bottom_navigation_bar.dart';
 import 'package:cool_alert/cool_alert.dart';
 
 class SignUp extends StatelessWidget {
@@ -111,12 +111,13 @@ Semua Bibit Berkualitass.''',
                                   type: CoolAlertType.success,
                                   title: "Success!",
                                   text: "Pendaftaran Berhasil",
-                                  backgroundColor:Color.fromARGB(255, 154, 195, 180),
-                                  confirmBtnColor:Color(0xff3A8C6E),
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 154, 195, 180),
+                                  confirmBtnColor: const Color(0xff3A8C6E),
                                   onConfirmBtnTap: () {
                                     Navigator.pushReplacement(context,
                                         MaterialPageRoute(builder: (context) {
-                                      return const Home();
+                                      return const BottomNav();
                                     }));
                                   });
                             },
