@@ -1,11 +1,10 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
-import 'dart:ui';
 import 'package:flutter_application_1/abouttheapp.dart';
+import 'package:flutter_application_1/edit_profil.dart';
 import 'package:flutter_application_1/sign_in.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_application_1/Logout.dart';
 import 'package:cool_alert/cool_alert.dart';
 
@@ -45,7 +44,7 @@ class NewWidget extends StatelessWidget {
           body: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Row(children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
@@ -58,7 +57,7 @@ class NewWidget extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Wildan Maulana",
                         style: TextStyle(
                             color: Colors.white,
@@ -72,7 +71,12 @@ class NewWidget extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               )),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EditProfile()));
+                          },
                           child: const Text(
                             "Edit Profile",
                             style: TextStyle(
@@ -84,7 +88,7 @@ class NewWidget extends StatelessWidget {
                     ],
                   )
                 ]),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 SizedBox(
                   width: 320,
                   height: 50,
@@ -94,12 +98,12 @@ class NewWidget extends StatelessWidget {
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15))),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.watch_later_outlined,
                         color: Colors.black,
                         size: 30,
                       ),
-                      label: Text(
+                      label: const Text(
                         "History",
                         style: TextStyle(
                             color: Colors.black,
@@ -108,7 +112,7 @@ class NewWidget extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       )),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: 320,
                   height: 50,
@@ -118,12 +122,12 @@ class NewWidget extends StatelessWidget {
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15))),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.local_shipping_outlined,
                         color: Colors.black,
                         size: 30,
                       ),
-                      label: Text(
+                      label: const Text(
                         "My Order",
                         style: TextStyle(
                             color: Colors.black,
@@ -132,7 +136,7 @@ class NewWidget extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       )),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: 320,
                   height: 50,
@@ -148,12 +152,12 @@ class NewWidget extends StatelessWidget {
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15))),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.info_outline,
                         color: Colors.black,
                         size: 30,
                       ),
-                      label: Text(
+                      label: const Text(
                         "About the app",
                         style: TextStyle(
                             color: Colors.black,
@@ -162,7 +166,7 @@ class NewWidget extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       )),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: 320,
                   height: 50,
@@ -171,7 +175,8 @@ class NewWidget extends StatelessWidget {
                         CoolAlert.show(
                           context: context,
                           type: CoolAlertType.confirm,
-                          backgroundColor: Color.fromARGB(255, 175, 221, 243),
+                          backgroundColor:
+                              const Color.fromARGB(255, 175, 221, 243),
                           title: 'apakah anda yakin ingin logout?',
                           onConfirmBtnTap: () {
                             Navigator.push(
@@ -187,23 +192,24 @@ class NewWidget extends StatelessWidget {
                                   builder: (context) => const Profile()),
                             );
                           },
-                          cancelBtnTextStyle: TextStyle(
+                          cancelBtnTextStyle: const TextStyle(
                               color: Color.fromARGB(255, 221, 29, 29)),
-                          confirmBtnColor: Color.fromARGB(255, 136, 225, 139),
-                          confirmBtnTextStyle:
-                              TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                          confirmBtnColor:
+                              const Color.fromARGB(255, 136, 225, 139),
+                          confirmBtnTextStyle: const TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0)),
                         );
                       },
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15))),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.logout,
                         color: Colors.black,
                         size: 30,
                       ),
-                      label: Text(
+                      label: const Text(
                         "Logout",
                         style: TextStyle(
                             color: Colors.black,

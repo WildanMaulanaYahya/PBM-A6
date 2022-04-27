@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ubah_alamat.dart';
 
 class EditProfilAlamat extends StatelessWidget {
   const EditProfilAlamat({Key? key}) : super(key: key);
@@ -96,7 +97,14 @@ class EditProfilAlamat extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         )),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const UbahAlamat()),
+                                      );
+                                    },
                                     child: const Text(
                                       "Ubah",
                                       style: TextStyle(
