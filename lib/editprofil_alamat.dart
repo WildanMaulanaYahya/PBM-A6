@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const EditProfilAlamat());
-}
-
 class EditProfilAlamat extends StatelessWidget {
   const EditProfilAlamat({Key? key}) : super(key: key);
 
