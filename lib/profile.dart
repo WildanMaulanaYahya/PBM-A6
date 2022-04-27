@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'dart:ui';
+import 'package:flutter_application_1/abouttheapp.dart';
 import 'package:flutter_application_1/sign_in.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -136,7 +137,13 @@ class NewWidget extends StatelessWidget {
                   width: 320,
                   height: 50,
                   child: TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Abouttheapp()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(

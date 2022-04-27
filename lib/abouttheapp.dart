@@ -18,7 +18,9 @@ class Abouttheapp extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: const Icon(
                           Icons.arrow_back_rounded,
                           color: Colors.white,
