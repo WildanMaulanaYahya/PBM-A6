@@ -45,14 +45,17 @@ class EditProfilAlamat extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 150),
-                    child: Text("+ Tambah Alamat",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w300,
-                            fontFamily: 'Poppins',
-                            fontSize: 18)),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text("+ Tambah Alamat",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: 'Poppins',
+                              fontSize: 18)),
+                    ),
                   ),
                   Padding(
                       padding: const EdgeInsets.all(20.0),
