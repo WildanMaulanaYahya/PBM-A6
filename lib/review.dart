@@ -7,10 +7,10 @@ class Review extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SafeArea(
-          child: Scaffold(
-              backgroundColor: const Color(0xff3A8C6E),
-              body: Stack(
+        home: Scaffold(
+            backgroundColor: const Color(0xff3A8C6E),
+            body: SafeArea(
+              child: Stack(
                 children: [
                   Container(
                     color: const Color(0xff3A8C6E),
@@ -186,7 +186,7 @@ class Review extends StatelessWidget {
                         child: Image.asset('images/biji4.png')),
                   ),
                 ],
-              )),
-        ));
+              ),
+            )));
   }
 }

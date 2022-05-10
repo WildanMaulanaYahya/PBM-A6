@@ -7,10 +7,10 @@ class Abouttheapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SafeArea(
-          child: Scaffold(
-              backgroundColor: const Color(0xff3A8C6E),
-              body: Column(
+        home: Scaffold(
+            backgroundColor: const Color(0xff3A8C6E),
+            body: SafeArea(
+              child: Column(
                 children: [
                   const SizedBox(
                     height: 10,
@@ -51,21 +51,21 @@ class Abouttheapp extends StatelessWidget {
                         padding: EdgeInsets.all(50.0),
                         child: Text(
                           '''Lorem ipsum dolor sit amet, 
-consectetur adipiscing elit ut 
-aliquam, purus sit amet 
-luctus venenatis, lectus 
-magna fringilla urna, porttitor 
-rhoncus dolor purus non 
-enim praesent elementum 
-facilisis leo, vel fringilla est 
-ullamcorper eget nulla facilisi 
-etiam dignissim diam quis 
-enim lobortis scelerisque 
-fermentum dui faucibus in 
-ornare quam viverra orci 
-sagittis eu volutpat odio 
-facilisis mauris sit amet 
-massa''',
+            consectetur adipiscing elit ut 
+            aliquam, purus sit amet 
+            luctus venenatis, lectus 
+            magna fringilla urna, porttitor 
+            rhoncus dolor purus non 
+            enim praesent elementum 
+            facilisis leo, vel fringilla est 
+            ullamcorper eget nulla facilisi 
+            etiam dignissim diam quis 
+            enim lobortis scelerisque 
+            fermentum dui faucibus in 
+            ornare quam viverra orci 
+            sagittis eu volutpat odio 
+            facilisis mauris sit amet 
+            massa''',
                           style: TextStyle(
                               fontFamily: "poppins",
                               fontSize: 16,
@@ -137,7 +137,7 @@ massa''',
                     ),
                   ),
                 ],
-              )),
-        ));
+              ),
+            )));
   }
 }
