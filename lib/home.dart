@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/barang.dart';
+import 'package:flutter_application_1/widget/bintang2.dart';
+import 'package:flutter_application_1/widget/bintang3.dart';
+import 'package:flutter_application_1/widget/bintang4.dart';
+import 'package:flutter_application_1/widget/costum_card_home.dart';
 
 import 'filter.dart';
 
@@ -19,6 +23,7 @@ class _HomeState extends State<Home> {
       theme:
           ThemeData(appBarTheme: const AppBarTheme(color: Color(0xff3A8C6E))),
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         key: _scaffoldKey,
         backgroundColor: const Color(0xff3A8C6E),
         appBar: AppBar(
@@ -109,118 +114,30 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
-                          children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset('images/biji1.png'),
-                            ),
-                            const Text('Biji 1',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            )
+                          children: const <Widget>[
+                            CostumCardHome(
+                                nameImage: 'biji1.png',
+                                name: 'Biji 1',
+                                harga: 'Rp 50.000'),
+                            Bintang3()
                           ],
                         ),
                         Column(
-                          children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset('images/biji2.png'),
-                            ),
-                            const Text('Biji 2',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            )
+                          children: const <Widget>[
+                            CostumCardHome(
+                                nameImage: 'biji2.png',
+                                name: 'Biji 2',
+                                harga: 'Rp 50.000'),
+                            Bintang3()
                           ],
                         ),
                         Column(
-                          children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset('images/biji3.png'),
-                            ),
-                            const Text('Biji 3',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(children: const <Widget>[
-                              Icon(
-                                Icons.star_rate,
-                                color: Colors.yellow,
-                              ),
-                              Icon(
-                                Icons.star_rate,
-                                color: Colors.yellow,
-                              ),
-                              Icon(
-                                Icons.star_rate,
-                                color: Colors.yellow,
-                              ),
-                              Icon(
-                                Icons.star_rate,
-                                color: Colors.yellow,
-                              )
-                            ])
+                          children: const <Widget>[
+                            CostumCardHome(
+                                nameImage: 'biji3.png',
+                                name: 'Biji 3',
+                                harga: 'Rp 50.000'),
+                            Bintang4()
                           ],
                         )
                       ],
@@ -236,7 +153,7 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
@@ -245,119 +162,31 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                             );
                           },
                           child: Column(
-                            children: <Widget>[
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset('images/biji4.png')),
-                              const Text('Biji 4',
-                                  style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                  )),
-                              const Text('Rp 50.000',
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xff4F9E2A))),
-                              Row(
-                                children: const <Widget>[
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Colors.yellow,
-                                  )
-                                ],
-                              )
+                            children: const <Widget>[
+                              CostumCardHome(
+                                  nameImage: 'biji4.png',
+                                  name: 'Biji 4',
+                                  harga: 'Rp 50.000'),
+                              Bintang4()
                             ],
                           ),
                         ),
                         Column(
-                          children: <Widget>[
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset('images/biji5.png')),
-                            const Text('Biji 5',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            ),
+                          children: const <Widget>[
+                            CostumCardHome(
+                                nameImage: 'biji5.png',
+                                name: 'Biji 5',
+                                harga: 'Rp 50.000'),
+                            Bintang4()
                           ],
                         ),
                         Column(
-                          children: <Widget>[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset('images/biji6.png'),
-                            ),
-                            const Text('Biji 6',
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 16,
-                                )),
-                            const Text('Rp 50.000',
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xff4F9E2A))),
-                            Row(
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                ),
-                                Icon(
-                                  Icons.star_rate_outlined,
-                                  color: Colors.yellow,
-                                )
-                              ],
-                            ),
+                          children: const <Widget>[
+                            CostumCardHome(
+                                nameImage: 'biji6.png',
+                                name: 'Biji 6',
+                                harga: 'Rp 50.000'),
+                            Bintang2()
                           ],
                         ),
                       ],
@@ -374,7 +203,6 @@ Mau Belanja Bibit Tanaman apa hari ini ? ''',
                 ),
               ),
             ],
-            //  _widgetOptions.elementAt(_selectedIndex),
           ),
         ),
       ),

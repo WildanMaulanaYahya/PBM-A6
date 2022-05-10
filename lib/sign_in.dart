@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/signup.dart';
-
+import 'package:flutter_application_1/widget/costum_textfield.dart';
+import 'package:flutter_application_1/widget/custom_bottom1.dart';
 import 'bottom_navigation_bar.dart';
 
 class SignIn extends StatelessWidget {
@@ -63,16 +64,7 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        TextField(
-                          style: const TextStyle(
-                              fontFamily: "Poppins", fontSize: 15),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            hintText: 'Email',
-                          ),
-                        ),
+                        const CostumTextField(hintText: 'Email'),
                         const SizedBox(height: 30),
                         TextField(
                           style: const TextStyle(
@@ -97,28 +89,15 @@ class SignIn extends StatelessWidget {
                                   color: Color(0xff8F8F8F))),
                         ),
                         const SizedBox(height: 10),
-                        SizedBox(
-                          width: 350,
-                          height: 50,
-                          child: TextButton(
-                              style: TextButton.styleFrom(
-                                  backgroundColor: const Color(0xff3A8C6E),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  )),
-                              onPressed: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(builder: ((context) {
-                                  return const BottomNav();
-                                })));
-                              },
-                              child: const Text(
-                                "Sign In",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                ),
-                              )),
+                        CustomButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const BottomNav()),
+                            );
+                          },
+                          inputText: 'Sign In',
                         ),
                         TextButton(
                             onPressed: () {

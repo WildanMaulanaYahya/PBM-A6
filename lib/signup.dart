@@ -1,6 +1,10 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bottom_navigation_bar.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:flutter_application_1/widget/costum_textfield.dart';
+import 'package:flutter_application_1/widget/custom_bottom1.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -52,39 +56,16 @@ Semua Bibit Berkualitass.''',
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 10, 30, 15),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            hintText: 'Nama Lengkap',
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 10, 30, 15),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            hintText: 'No Telepon',
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 10, 30, 15),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            hintText: 'Email',
-                          ),
-                        ),
-                      ),
+                      const Padding(
+                          padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
+                          child:
+                              const CostumTextField(hintText: 'Nama Lengkap')),
+                      const Padding(
+                          padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
+                          child: const CostumTextField(hintText: 'No Telepon')),
+                      const Padding(
+                          padding: EdgeInsets.fromLTRB(30, 10, 30, 15),
+                          child: const CostumTextField(hintText: 'Email')),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(30, 10, 30, 30),
                         child: TextField(
@@ -96,39 +77,24 @@ Semua Bibit Berkualitass.''',
                               suffixIcon: const Icon(Icons.visibility)),
                         ),
                       ),
-                      SizedBox(
-                        width: 334,
-                        height: 50,
-                        child: TextButton(
-                            style: TextButton.styleFrom(
-                                backgroundColor: const Color(0xff3A8C6E),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                )),
-                            onPressed: () {
-                              CoolAlert.show(
-                                  context: context,
-                                  type: CoolAlertType.success,
-                                  title: "Success!",
-                                  text: "Pendaftaran Berhasil",
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 154, 195, 180),
-                                  confirmBtnColor: const Color(0xff3A8C6E),
-                                  onConfirmBtnTap: () {
-                                    Navigator.pushReplacement(context,
-                                        MaterialPageRoute(builder: (context) {
-                                      return const BottomNav();
-                                    }));
-                                  });
-                            },
-                            child: const Text(
-                              "Sign Up",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
-                            )),
+                      CustomButton(
+                        onPressed: () {
+                          CoolAlert.show(
+                              context: context,
+                              type: CoolAlertType.success,
+                              title: "Success!",
+                              text: "Pendaftaran Berhasil",
+                              backgroundColor:
+                                  const Color.fromARGB(255, 154, 195, 180),
+                              confirmBtnColor: const Color(0xff3A8C6E),
+                              onConfirmBtnTap: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const BottomNav();
+                                }));
+                              });
+                        },
+                        inputText: 'Sign Up',
                       ),
                     ],
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/review.dart';
+import 'package:flutter_application_1/widget/bintang3.dart';
 
 import 'add_to_cart.dart';
 import 'chat.dart';
@@ -76,18 +77,7 @@ class Barang extends StatelessWidget {
                         ),
                         Row(
                           children: const [
-                            Icon(
-                              Icons.star_rate,
-                              color: Color(0xffFFD233),
-                            ),
-                            Icon(
-                              Icons.star_rate,
-                              color: Color(0xffFFD233),
-                            ),
-                            Icon(
-                              Icons.star_rate,
-                              color: Color(0xffFFD233),
-                            ),
+                            Bintang3(),
                             Text(
                               '3.0',
                               style: TextStyle(
