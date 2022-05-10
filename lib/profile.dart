@@ -1,12 +1,11 @@
 import 'package:flutter_application_1/abouttheapp.dart';
 import 'package:flutter_application_1/edit_profil.dart';
 import 'package:flutter_application_1/sign_in.dart';
+import 'package:flutter_application_1/widget/costum_button_profile.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:cool_alert/cool_alert.dart';
 
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:flutter_application_1/Logout.dart';
-import 'package:cool_alert/cool_alert.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -89,135 +88,58 @@ class NewWidget extends StatelessWidget {
                   )
                 ]),
                 const SizedBox(height: 40),
-                SizedBox(
-                  width: 320,
-                  height: 50,
-                  child: TextButton.icon(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      icon: const Icon(
-                        Icons.watch_later_outlined,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      label: const Text(
-                        "History",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "poppins",
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      )),
+                CustomButton3(
+                  icon: Icons.watch_later_outlined,
+                  text: 'History',
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  width: 320,
-                  height: 50,
-                  child: TextButton.icon(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      icon: const Icon(
-                        Icons.local_shipping_outlined,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      label: const Text(
-                        "My Order",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "poppins",
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      )),
+                CustomButton3(
+                  icon: Icons.local_shipping_outlined,
+                  text: 'My Order',
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  width: 320,
-                  height: 50,
-                  child: TextButton.icon(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Abouttheapp()),
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      icon: const Icon(
-                        Icons.info_outline,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      label: const Text(
-                        "About the app",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "poppins",
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      )),
+                CustomButton3(
+                  icon: Icons.local_shipping_outlined,
+                  text: 'About the app',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Abouttheapp()),
+                    );
+                  },
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  width: 320,
-                  height: 50,
-                  child: TextButton.icon(
-                      onPressed: () {
-                        CoolAlert.show(
-                          context: context,
-                          type: CoolAlertType.confirm,
-                          backgroundColor:
-                              const Color.fromARGB(255, 175, 221, 243),
-                          title: 'apakah anda yakin ingin logout?',
-                          onConfirmBtnTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignIn()),
-                            );
-                          },
-                          onCancelBtnTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Profile()),
-                            );
-                          },
-                          cancelBtnTextStyle: const TextStyle(
-                              color: Color.fromARGB(255, 221, 29, 29)),
-                          confirmBtnColor:
-                              const Color.fromARGB(255, 136, 225, 139),
-                          confirmBtnTextStyle: const TextStyle(
-                              color: Color.fromARGB(255, 0, 0, 0)),
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      icon: const Icon(
-                        Icons.logout,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      label: const Text(
-                        "Logout",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "poppins",
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      )),
-                )
+                CustomButton3(
+                    icon: Icons.logout,
+                    text: 'Logout',
+                    onPressed: () {
+                      CoolAlert.show(
+                        context: context,
+                        type: CoolAlertType.confirm,
+                        backgroundColor:
+                            const Color.fromARGB(255, 175, 221, 243),
+                        title: 'apakah anda yakin ingin logout?',
+                        onConfirmBtnTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignIn()),
+                          );
+                        },
+                        onCancelBtnTap: () {
+                          Navigator.of(context, rootNavigator: true).pop();
+                        },
+                        cancelBtnTextStyle: const TextStyle(
+                            color: Color.fromARGB(255, 221, 29, 29)),
+                        confirmBtnColor:
+                            const Color.fromARGB(255, 136, 225, 139),
+                        confirmBtnTextStyle: const TextStyle(
+                            color: Color.fromARGB(255, 0, 0, 0)),
+                      );
+                    })
               ],
             ),
           ),
