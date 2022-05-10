@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'editprofil_alamat.dart';
+import 'widget/custom_button_edit.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -81,33 +82,11 @@ class EditProfile extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-            SizedBox(
-              width: 300,
-              child: ElevatedButton(
+            CostumButton2(
+                nama: 'Name',
+                ket: 'wildan Maulana',
                 onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Name',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 80),
-                    Text(
-                      'Wildan Maulana',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-            ),
+                width: 80),
             const SizedBox(height: 20),
             SizedBox(
               width: 300,
@@ -136,126 +115,31 @@ class EditProfile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            SizedBox(
-              width: 300,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Gender',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 80),
-                    Text(
-                      'Male',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 70),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-            ),
+            CostumButton2(
+                nama: 'Gender', ket: 'Male', onPressed: () {}, width: 150),
             const SizedBox(height: 20),
-            SizedBox(
-              width: 300,
-              child: ElevatedButton(
+            CostumButton2(
+                nama: 'Alamat',
+                ket: 'Jl. Mangga III No 17',
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const EditProfilAlamat()));
                 },
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Alamat',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 30),
-                    Text(
-                      'Jl. Mangga III No 17',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 20),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-            ),
+                width: 52),
             const SizedBox(height: 20),
-            SizedBox(
-              width: 300,
-              child: ElevatedButton(
+            CostumButton2(
+                nama: 'No HP',
+                ket: '081938785156',
                 onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'No Hp',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 40),
-                    Text(
-                      '081938785156',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 50),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-            ),
+                width: 97),
             const SizedBox(height: 20),
-            SizedBox(
-              width: 300,
-              child: ElevatedButton(
+            CostumButton2(
+                nama: 'E-mail',
+                ket: 'wildan@gmail.com',
                 onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    foregroundColor: MaterialStateProperty.all(Colors.black),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Email',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 20),
-                    Text(
-                      'wildan@gmail.com',
-                      style: TextStyle(fontFamily: "Poppins"),
-                    ),
-                    SizedBox(width: 30),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-            ),
+                width: 53),
           ],
         ),
       ),
