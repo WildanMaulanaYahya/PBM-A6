@@ -46,10 +46,10 @@ class EditProfilAlamat extends StatelessWidget {
                   height: 30,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 150),
+                  padding: const EdgeInsets.only(left: 150),
                   child: TextButton(
                     onPressed: () {},
-                    child: Text("+ Tambah Alamat",
+                    child: const Text("+ Tambah Alamat",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w300,
