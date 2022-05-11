@@ -32,10 +32,10 @@ class CustomButton3 extends StatelessWidget {
               color: Colors.black,
               size: 30,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
               text,
-              style: TextStyle(fontFamily: "Poppins", fontSize: 20),
+              style: const TextStyle(fontFamily: "Poppins", fontSize: 20),
             ),
           ],
         ),

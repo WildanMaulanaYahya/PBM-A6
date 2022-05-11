@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
 import 'editprofil_alamat.dart';
 import 'widget/custom_button_edit.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'dart:io';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  File? _image;
+  Future openCamera() async {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.camera);
+
+    _image = File(pickedImage!.path);
+  }
+
+  Future openGallery() async {
+    final imageGallery =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    _image = File(imageGallery!.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +57,33 @@ class EditProfile extends StatelessWidget {
                       children: [
                         Stack(
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.asset(
-                                'images/profil.png',
-                                width: 100,
-                                height: 100,
-                                color: const Color.fromARGB(208, 129, 129, 129),
-                                colorBlendMode: BlendMode.modulate,
-                              ),
-                            ),
+                            _image != null
+                                ? ClipOval(
+                                    child: Image.file(
+                                      _image!,
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  )
+                                : ClipRRect(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Image.asset(
+                                      'images/profil.png',
+                                      width: 100,
+                                      height: 100,
+                                      color: const Color.fromARGB(
+                                          208, 129, 129, 129),
+                                      colorBlendMode: BlendMode.modulate,
+                                    ),
+                                  ),
                             Positioned(
                               top: 30,
                               right: 25,
                               child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  openCamera();
+                                },
                                 icon: const Icon(Icons.camera_alt_outlined),
                                 color: Colors.white,
                                 iconSize: 30,
@@ -56,11 +91,14 @@ class EditProfile extends StatelessWidget {
                             )
                           ],
                         ),
+                        const SizedBox(height: 10),
                         SizedBox(
                           width: 95,
                           height: 28,
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                openGallery();
+                              },
                               style: TextButton.styleFrom(
                                   backgroundColor: const Color(0xffFCD857),
                                   shape: RoundedRectangleBorder(
