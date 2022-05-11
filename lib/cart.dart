@@ -1,5 +1,6 @@
 import 'package:counter_button/counter_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/custom_bottom1.dart';
 
 class Cart extends StatefulWidget {
   const Cart({Key? key}) : super(key: key);
@@ -130,6 +131,58 @@ class _CartState extends State<Cart> {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 262),
+                  Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'Total Pembayaran',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: "Poppins",
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Text('Rp 50.000',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff73BE12))),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Checkbox(
+                                  checkColor: Colors.black,
+                                  activeColor: const Color(0xffE5E5E5),
+                                  value: isChecked,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      isChecked = value!;
+                                    });
+                                  }),
+                              const Text("Semua",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.w600))
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 150),
+                            child: CustomButton(
+                                inputText: 'Checkout', onPressed: () {}),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             )));
