@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ubah_alamat.dart';
+import 'package:flutter_application_1/tambah_alamat.dart';
 
 class EditProfilAlamat extends StatelessWidget {
   const EditProfilAlamat({Key? key}) : super(key: key);
@@ -14,9 +15,7 @@ class EditProfilAlamat extends StatelessWidget {
             backgroundColor: const Color(0xff3A8C6E),
             body: SafeArea(
               child: Column(children: [
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     IconButton(
@@ -48,7 +47,12 @@ class EditProfilAlamat extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 150),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TambahAlamat()));
+                    },
                     child: const Text("+ Tambah Alamat",
                         style: TextStyle(
                             color: Colors.white,
@@ -122,7 +126,7 @@ class EditProfilAlamat extends StatelessWidget {
                           child: Row(
                             children: const [
                               Text('''Kelurahan Bedali, Kecamatan Lawang, 
-            Jawa Timur, 60256''',
+Jawa Timur, 60256''',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.black,
@@ -149,8 +153,8 @@ class EditProfilAlamat extends StatelessWidget {
                             child: Row(
                               children: [
                                 const Text(
-                                    '''Jl. Tanjung Pinang III No 17, RT 06 
-            RW 07''',
+                                    '''Jl. Tanjung Pinang III No 17, RT 06
+RW 07''',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.black,
@@ -184,7 +188,7 @@ class EditProfilAlamat extends StatelessWidget {
                             child: Row(
                               children: const [
                                 Text('''Kota Tanjung Pinang, Kepulauan Riau, 
-            29123''',
+29123''',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.black,

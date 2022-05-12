@@ -1,4 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/costum_textfield2.dart';
+import 'package:flutter_application_1/widget/custom_bottom1.dart';
 
 class UbahAlamat extends StatelessWidget {
   const UbahAlamat({Key? key}) : super(key: key);
@@ -11,159 +15,62 @@ class UbahAlamat extends StatelessWidget {
             resizeToAvoidBottomInset: false,
             backgroundColor: const Color(0xff3A8C6E),
             body: SafeArea(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_rounded,
-                          color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_rounded,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 80,
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        child: Text("Ubah Alamat",
+                        const SizedBox(
+                          width: 80,
+                        ),
+                        const Text("Ubah Alamat",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'Poppins',
                                 fontSize: 20)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 300.0),
-                    child: Text("Alamat",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "poppins",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500)),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    width: 370,
-                    child: TextField(
-                      style:
-                          const TextStyle(fontFamily: "Poppins", fontSize: 15),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        hintText: 'Masukkan Alamat',
-                      ),
+                      ],
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 170.0, top: 20),
-                    child: Text("Kota atau Kecamatan",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "poppins",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500)),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 370,
-                    child: TextField(
-                      style:
-                          const TextStyle(fontFamily: "Poppins", fontSize: 15),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        hintText: 'Masukkan Kota atau Kecamatan',
-                      ),
+                    const SizedBox(height: 50),
+                    const CostumTextField2(
+                        judul: 'Alamat', isi: 'Masukkan Alamat'),
+                    const SizedBox(height: 20),
+                    const CostumTextField2(
+                        judul: 'Kota atau Kecamatan',
+                        isi: 'Masukkan Kota atau Kecamatan'),
+                    const SizedBox(height: 20),
+                    const CostumTextField2(
+                        judul: 'Kode Pos', isi: 'Masukkan Kode Pos'),
+                    const SizedBox(height: 100),
+                    CustomButton(
+                      inputText: 'Simpan',
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      color: const Color(0xff88E18B),
+                      textcolor: Colors.black,
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 290.0, top: 30),
-                    child: Text("Kode Pos",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "poppins",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500)),
-                  ),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    width: 370,
-                    child: TextField(
-                      style:
-                          const TextStyle(fontFamily: "Poppins", fontSize: 15),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        hintText: 'Masukkan Kode Pos',
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 80),
-                  SizedBox(
-                    width: 370,
-                    height: 50,
-                    child: TextButton(
-                        style: TextButton.styleFrom(
-                            backgroundColor: const Color(0xff88E18B),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            )),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text(
-                          "Simpan",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontFamily: "Poppins",
-                          ),
-                        )),
-                  ),
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    width: 370,
-                    height: 50,
-                    child: TextButton(
-                        style: TextButton.styleFrom(
-                            backgroundColor: const Color(0xffFF0606),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            )),
+                    SizedBox(height: 30),
+                    CustomButton(
+                        inputText: 'Hapus Alamat',
                         onPressed: () {},
-                        child: const Text(
-                          "Hapus Alamat",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontFamily: "Poppins",
-                          ),
-                        )),
-                  ),
-                ],
+                        color: const Color(0xffFF0606),
+                        textcolor: Colors.black)
+                  ],
+                ),
               ),
             )));
   }

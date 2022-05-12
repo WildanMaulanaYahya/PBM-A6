@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CostumCardHome extends StatelessWidget {
-  final nameImage;
+  final dynamic nameImage;
   final String name;
   final String harga;
 
