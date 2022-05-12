@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Maps.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 
 class LokasiSaatIni extends StatefulWidget {
@@ -14,6 +15,7 @@ class _LokasiSaatIniState extends State<LokasiSaatIni> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xff3A8C6E),
         body: SafeArea(
             child: Column(
@@ -68,7 +70,7 @@ class _LokasiSaatIniState extends State<LokasiSaatIni> {
                 ],
               ),
             ),
-            //gambar
+            const HomeScreen(),
             const SizedBox(height: 100),
             CustomButton(
               inputText: 'Simpan',
