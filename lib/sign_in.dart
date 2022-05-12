@@ -98,6 +98,8 @@ class SignIn extends StatelessWidget {
                             );
                           },
                           inputText: 'Sign In',
+                          color: const Color(0xff3A8C6E),
+                          textcolor: Colors.white,
                         ),
                         TextButton(
                             onPressed: () {

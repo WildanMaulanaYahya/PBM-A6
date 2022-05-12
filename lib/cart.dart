@@ -177,7 +177,11 @@ class _CartState extends State<Cart> {
                           Padding(
                             padding: const EdgeInsets.only(left: 150),
                             child: CustomButton(
-                                inputText: 'Checkout', onPressed: () {}),
+                              inputText: 'Checkout',
+                              onPressed: () {},
+                              color: const Color(0xff3A8C6E),
+                              textcolor: Colors.white,
+                            ),
                           )
                         ],
                       ),

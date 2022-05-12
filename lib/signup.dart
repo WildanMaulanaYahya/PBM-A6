@@ -95,6 +95,8 @@ Semua Bibit Berkualitass.''',
                               });
                         },
                         inputText: 'Sign Up',
+                        color: const Color(0xff3A8C6E),
+                        textcolor: Colors.white,
                       ),
                     ],
                   ),

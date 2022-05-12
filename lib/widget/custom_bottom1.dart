@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String inputText;
   final GestureTapCallback onPressed;
+  final dynamic color;
+  final dynamic textcolor;
 
   const CustomButton(
-      {Key? key, required this.inputText, required this.onPressed})
+      {Key? key,
+      required this.inputText,
+      required this.onPressed,
+      this.textcolor,
+      this.color})
       : super(key: key);
 
   @override
@@ -15,17 +21,15 @@ class CustomButton extends StatelessWidget {
       height: 50,
       child: TextButton(
           style: TextButton.styleFrom(
-              backgroundColor: const Color(0xff3A8C6E),
+              backgroundColor: color,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(15),
               )),
           onPressed: onPressed,
           child: Text(
             inputText,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.white,
-            ),
+            style: TextStyle(
+                fontSize: 16, color: textcolor, fontFamily: "poppins"),
           )),
     );
   }
