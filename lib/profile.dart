@@ -45,14 +45,18 @@ class NewWidget extends StatelessWidget {
               children: [
                 const SizedBox(height: 50),
                 Row(children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
+                  const SizedBox(width: 30),
+                  ClipOval(
                     child: Image.asset(
                       'images/profil.png',
-                      width: 100,
-                      height: 100,
+                      width: 90,
+                      height: 90,
+                      fit: BoxFit.cover,
+                      color: const Color.fromARGB(208, 129, 129, 129),
+                      colorBlendMode: BlendMode.modulate,
                     ),
                   ),
+                  const SizedBox(width: 20),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -64,6 +68,7 @@ class NewWidget extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
+                      SizedBox(height: 10),
                       TextButton(
                           style: TextButton.styleFrom(
                               backgroundColor: const Color(0xffFCD857),

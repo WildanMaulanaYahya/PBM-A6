@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/lokasi_saat_ini.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
+import 'package:flutter_application_1/location/location_provider.dart';
+import 'package:provider/provider.dart';
 
 class TambahAlamat extends StatelessWidget {
   const TambahAlamat({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<LocationProvider>(context, listen: true);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -55,6 +59,7 @@ class TambahAlamat extends StatelessWidget {
                   const SizedBox(height: 30),
                   ElevatedButton(
                       onPressed: () {
+                        provider.getLocation();
                         Navigator.push(
                             context,
                             MaterialPageRoute(

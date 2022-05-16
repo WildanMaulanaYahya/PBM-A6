@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Maps.dart';
+import 'package:flutter_application_1/alamat.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 
 class LokasiSaatIni extends StatefulWidget {
@@ -43,7 +43,7 @@ class _LokasiSaatIniState extends State<LokasiSaatIni> {
               ],
             ),
             const SizedBox(height: 50),
-            Text(
+            const Text(
               'Alamat yang Terdeteksi',
               style: TextStyle(
                   fontFamily: "Poppins",
@@ -51,27 +51,8 @@ class _LokasiSaatIniState extends State<LokasiSaatIni> {
                   color: Colors.white,
                   fontWeight: FontWeight.w500),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  TextField(
-                    style: const TextStyle(fontFamily: "Poppins", fontSize: 15),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      hintText: '',
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                ],
-              ),
-            ),
-            const HomeScreen(),
-            const SizedBox(height: 100),
+            const SizedBox(height: 20),
+            const Alamat(),
             CustomButton(
               inputText: 'Simpan',
               onPressed: () {},

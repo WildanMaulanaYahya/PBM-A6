@@ -63,15 +63,18 @@ class _EditProfileState extends State<EditProfile> {
                                       _image!,
                                       width: 100,
                                       height: 100,
-                                      fit: BoxFit.fill,
+                                      fit: BoxFit.cover,
+                                      color: const Color.fromARGB(
+                                          208, 129, 129, 129),
+                                      colorBlendMode: BlendMode.modulate,
                                     ),
                                   )
-                                : ClipRRect(
-                                    borderRadius: BorderRadius.circular(10.0),
+                                : ClipOval(
                                     child: Image.asset(
                                       'images/profil.png',
                                       width: 100,
                                       height: 100,
+                                      fit: BoxFit.cover,
                                       color: const Color.fromARGB(
                                           208, 129, 129, 129),
                                       colorBlendMode: BlendMode.modulate,
