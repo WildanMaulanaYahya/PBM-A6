@@ -10,6 +10,7 @@ import 'package:flutter_application_1/location/location_provider.dart';
 import 'package:flutter_application_1/profile.dart';
 import 'package:flutter_application_1/signup.dart';
 import 'package:flutter_application_1/ubah_alamat.dart';
+import 'package:flutter_application_1/ubah_email.dart';
 import 'package:flutter_application_1/ubah_gender.dart';
 import 'package:flutter_application_1/ubah_nama.dart';
 import 'package:flutter_application_1/ubah_nohp.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UbahNoHP(),
+      home: UbahEmail(),
     );
   }
 }
