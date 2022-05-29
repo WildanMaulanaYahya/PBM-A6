@@ -6,6 +6,7 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter_application_1/widget/costum_textfield.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:intl/intl.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -16,6 +17,13 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   @override
+  TextEditingController dateinput = TextEditingController();
+
+  void initState() {
+    dateinput.text = ""; //set the initial value of text field
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -79,24 +87,57 @@ Semua Bibit Berkualitass.''',
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextField(
+                          controller: dateinput,
+                          readOnly: true,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               hintText: 'Tanggal Lahir',
                               suffixIcon: IconButton(
-                                  onPressed: () {
-                                    DatePicker.showDatePicker(context,
-                                        showTitleActions: true,
-                                        minTime: DateTime(1990, 3, 5),
-                                        maxTime: DateTime(2019, 6, 7),
-                                        onChanged: (date) {
-                                      print('change $date');
-                                    }, onConfirm: (date) {
-                                      print('confirm $date');
-                                    },
-                                        currentTime: DateTime.now(),
-                                        locale: LocaleType.id);
+                                  onPressed: () async {
+                                    DateTime? pickedDate = await showDatePicker(
+                                        builder: (context, child) {
+                                          return Theme(
+                                            data: Theme.of(context).copyWith(
+                                              colorScheme: ColorScheme.light(
+                                                primary: Color(0xff3A8C6E),
+                                                onPrimary: Colors.white,
+                                                onSurface: Colors.black,
+                                              ),
+                                              textButtonTheme:
+                                                  TextButtonThemeData(
+                                                style: TextButton.styleFrom(
+                                                  primary: Colors.black,
+                                                ),
+                                              ),
+                                            ),
+                                            child: child!,
+                                          );
+                                        },
+                                        context: context,
+                                        initialDate: DateTime.now(),
+                                        firstDate: DateTime(
+                                            1945), //DateTime.now() - not to allow to choose before today.
+                                        lastDate: DateTime(2101));
+
+                                    if (pickedDate != null) {
+                                      print(
+                                          pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                                      String formattedDate =
+                                          DateFormat('yyyy-MM-dd')
+                                              .format(pickedDate);
+                                      print(
+                                          formattedDate); //formatted date output using intl package =>  2021-03-16
+                                      //you can implement different kind of Date Format here according to your requirement
+
+                                      setState(() {
+                                        dateinput.text =
+                                            formattedDate; //set output date to TextField value.
+                                      });
+                                    } else {
+                                      print("Date is not selected");
+                                    }
                                   },
                                   icon: Icon(Icons.calendar_month_outlined))),
                         ),
