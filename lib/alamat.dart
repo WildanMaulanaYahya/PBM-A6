@@ -91,7 +91,7 @@ class _AlamatState extends State<Alamat> {
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(15),
                 )),
           ),
         ),

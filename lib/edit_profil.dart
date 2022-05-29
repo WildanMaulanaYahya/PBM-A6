@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ubah_gender.dart';
+import 'package:flutter_application_1/ubah_nama.dart';
 import 'editprofil_alamat.dart';
 import 'widget/custom_button_edit.dart';
 import 'package:image_picker/image_picker.dart';
@@ -126,7 +128,12 @@ class _EditProfileState extends State<EditProfile> {
             CostumButton2(
                 nama: 'Name',
                 ket: 'wildan Maulana',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UbahNama()),
+                  );
+                },
                 width: 80),
             const SizedBox(height: 20),
             SizedBox(
@@ -157,7 +164,15 @@ class _EditProfileState extends State<EditProfile> {
             ),
             const SizedBox(height: 20),
             CostumButton2(
-                nama: 'Gender', ket: 'Male', onPressed: () {}, width: 150),
+                nama: 'Gender',
+                ket: 'Male',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UbahGender()),
+                  );
+                },
+                width: 150),
             const SizedBox(height: 20),
             CostumButton2(
                 nama: 'Alamat',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/bintang4.dart';
 
 class Review extends StatelessWidget {
   const Review({Key? key}) : super(key: key);
@@ -52,18 +53,7 @@ class Review extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: const [
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Color(0xffFFD233),
-                                  ),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Color(0xffFFD233),
-                                  ),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: Color(0xffFFD233),
-                                  ),
+                                  Bintang4(),
                                   SizedBox(
                                     width: 5,
                                   ),
@@ -126,41 +116,33 @@ class Review extends StatelessWidget {
                                   Row(
                                     children: [
                                       const SizedBox(width: 20),
-                                      Image.asset("images/profil.png"),
+                                      ClipOval(
+                                        child: Image.asset(
+                                          'images/profil.png',
+                                          width: 50,
+                                          height: 50,
+                                          fit: BoxFit.cover,
+                                          color: const Color.fromARGB(
+                                              208, 129, 129, 129),
+                                          colorBlendMode: BlendMode.modulate,
+                                        ),
+                                      ),
                                       const SizedBox(width: 20),
                                       Column(
-                                        children: [
-                                          const Text(
+                                        children: const [
+                                          Text(
                                             "Wildan Maulana",
                                             style: TextStyle(
                                                 fontFamily: "poppins",
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.bold),
                                           ),
-                                          Row(
-                                            children: const [
-                                              Icon(
-                                                Icons.star_rate,
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons.star_rate,
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons.star_rate,
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons.star_rate,
-                                                color: Colors.yellow,
-                                              ),
-                                            ],
-                                          ),
+                                          Bintang4(),
                                         ],
                                       ),
                                       const SizedBox(width: 100),
                                       const Icon(Icons.thumb_up_alt_outlined),
+                                      const SizedBox(width: 5),
                                       const Icon(Icons.thumb_down_alt_outlined)
                                     ],
                                   ),
