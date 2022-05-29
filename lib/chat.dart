@@ -13,7 +13,6 @@ class _ChatState extends State<Chat> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          resizeToAvoidBottomInset: false,
           backgroundColor: const Color(0xff3A8C6E),
           body: SafeArea(
             child: Column(
@@ -66,16 +65,19 @@ class _ChatState extends State<Chat> {
                     ),
                   ),
                 ),
-                Container(
+                Expanded(
+                  flex: 5,
+                  child: Container(
                     color: const Color(0xffF2F1F1),
-                    height: MediaQuery.of(context).size.height * 0.7),
+                  ),
+                ),
                 Expanded(
                   flex: 1,
                   child: Container(
                     color: Colors.white,
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(25),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextField(
                           style: const TextStyle(
                               fontFamily: "Poppins", fontSize: 15),
@@ -89,7 +91,7 @@ class _ChatState extends State<Chat> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
