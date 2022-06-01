@@ -5,6 +5,7 @@ import 'package:flutter_application_1/Logout.dart';
 import 'package:flutter_application_1/cart.dart';
 import 'package:flutter_application_1/chat.dart';
 import 'package:flutter_application_1/dashboard.dart';
+import 'package:flutter_application_1/edit_profil.dart';
 import 'package:flutter_application_1/home.dart';
 import 'package:flutter_application_1/location/location_provider.dart';
 import 'package:flutter_application_1/profile.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: EditProfile(),
     );
   }
 }

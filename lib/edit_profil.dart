@@ -192,6 +192,12 @@ class _EditProfileState extends State<EditProfile> {
                 width: 97),
             const SizedBox(height: 20),
             CostumButton2(
+                nama: 'Tanggal Lahir',
+                ket: '1 Juni 2002',
+                onPressed: () {},
+                width: 65),
+            const SizedBox(height: 20),
+            CostumButton2(
                 nama: 'E-mail',
                 ket: 'wildan@gmail.com',
                 onPressed: () {},
