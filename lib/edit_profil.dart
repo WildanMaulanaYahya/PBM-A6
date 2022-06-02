@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ubah_email.dart';
 import 'package:flutter_application_1/ubah_gender.dart';
 import 'package:flutter_application_1/ubah_nama.dart';
+import 'package:flutter_application_1/ubah_nohp.dart';
+import 'package:flutter_application_1/ubah_tanggal.dart';
 import 'editprofil_alamat.dart';
 import 'widget/custom_button_edit.dart';
 import 'package:image_picker/image_picker.dart';
@@ -188,19 +191,32 @@ class _EditProfileState extends State<EditProfile> {
             CostumButton2(
                 nama: 'No HP',
                 ket: '081938785156',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const UbahNoHP()));
+                },
                 width: 97),
             const SizedBox(height: 20),
             CostumButton2(
                 nama: 'Tanggal Lahir',
                 ket: '1 Juni 2002',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const UbahTanggal())));
+                },
                 width: 65),
             const SizedBox(height: 20),
             CostumButton2(
                 nama: 'E-mail',
                 ket: 'wildan@gmail.com',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UbahEmail()));
+                },
                 width: 53),
           ],
         ),
