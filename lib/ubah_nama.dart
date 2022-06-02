@@ -36,7 +36,9 @@ class UbahNama extends StatelessWidget {
                           fontWeight: FontWeight.w500)),
                   const SizedBox(width: 140),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: const Text('Simpan',
                           style: TextStyle(
                             color: Color(0xff3A8C6E),

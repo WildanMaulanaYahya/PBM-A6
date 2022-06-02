@@ -41,7 +41,9 @@ class _UbahGenderState extends State<UbahGender> {
                           fontWeight: FontWeight.w500)),
                   const SizedBox(width: 140),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: const Text('Simpan',
                           style: TextStyle(
                             color: Color(0xff3A8C6E),

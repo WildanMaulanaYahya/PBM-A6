@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widget/custom_textfield_3.dart';
 
 class UbahEmail extends StatelessWidget {
-  const UbahEmail ({Key? key}) : super(key: key);
+  const UbahEmail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,9 @@ class UbahEmail extends StatelessWidget {
                           fontWeight: FontWeight.w500)),
                   const SizedBox(width: 140),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: const Text('Simpan',
                           style: TextStyle(
                             color: Color(0xff3A8C6E),
