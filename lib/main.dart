@@ -17,24 +17,27 @@ import 'package:flutter_application_1/ubah_nama.dart';
 import 'package:flutter_application_1/ubah_nohp.dart';
 import 'package:provider/provider.dart';
 import 'add_to_cart.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => LocationProvider(),
-      child: const MyApp(),
-    ),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(ChangeNotifierProvider(
+    create: (context) => LocationProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: EditProfile(),
-    );
+    return StreamBuilder(builder: (context, snapshot) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Dashboard(),
+      );
+    });
   }
 }

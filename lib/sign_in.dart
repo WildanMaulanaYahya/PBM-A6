@@ -1,17 +1,32 @@
+// ignore_for_file: non_constant_identifier_names, avoid_print
+
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/signup.dart';
-import 'package:flutter_application_1/widget/costum_textfield.dart';
+// import 'package:flutter_application_1/widget/costum_textfield.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 import 'bottom_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  var contr_email = TextEditingController();
+  var contr_password = TextEditingController();
+
+  // final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        // key: _formKey,
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xff3A8C6E),
         body: SafeArea(
@@ -64,9 +79,25 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        const CostumTextField(hintText: 'Email'),
+                        TextFormField(
+                          style: const TextStyle(
+                              fontFamily: "Poppins", fontSize: 15),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            hintText: 'Email',
+                          ),
+                          controller: contr_email,
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'email tidak boleh kosong';
+                          //   }
+                          //   return null;
+                          // },
+                        ),
                         const SizedBox(height: 30),
-                        TextField(
+                        TextFormField(
                           style: const TextStyle(
                               fontFamily: "Poppins", fontSize: 15),
                           decoration: InputDecoration(
@@ -78,6 +109,13 @@ class SignIn extends StatelessWidget {
                                 onPressed: () {},
                                 icon: const Icon(Icons.visibility),
                               )),
+                          controller: contr_password,
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'password tidak boleh kosong';
+                          //   }
+                          //   return null;
+                          // },
                         ),
                         const SizedBox(height: 10),
                         const Padding(
@@ -91,11 +129,7 @@ class SignIn extends StatelessWidget {
                         const SizedBox(height: 10),
                         CustomButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const BottomNav()),
-                            );
+                            _signin();
                           },
                           inputText: 'Sign In',
                           color: const Color(0xff3A8C6E),
@@ -123,5 +157,40 @@ class SignIn extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void next_screen(BuildContext context) {
+    CoolAlert.show(
+        context: context,
+        type: CoolAlertType.success,
+        title: "Success!",
+        text: "Berhasil Login",
+        backgroundColor: const Color.fromARGB(255, 154, 195, 180),
+        confirmBtnColor: const Color(0xff3A8C6E),
+        onConfirmBtnTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const BottomNav()),
+          );
+        });
+  }
+
+  void _signin() async {
+    try {
+      var emailAddress = contr_email.text;
+      var password = contr_password.text;
+      var credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: emailAddress, password: password);
+      print('proccess');
+      print(credential);
+      print('berhasil');
+      next_screen(context);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
   }
 }
