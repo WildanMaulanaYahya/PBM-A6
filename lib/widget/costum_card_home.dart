@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/bintang2.dart';
+import 'package:flutter_application_1/widget/bintang3.dart';
 
 class CostumCardHome extends StatelessWidget {
-  final dynamic nameImage;
+  final nameImage;
   final String name;
   final String harga;
 
@@ -16,9 +18,15 @@ class CostumCardHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Image.asset('images/' + nameImage),
+        Container(
+          height: 80,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.network(
+              nameImage,
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         Text(name,
             style: const TextStyle(

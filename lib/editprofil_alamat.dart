@@ -51,7 +51,7 @@ class EditProfilAlamat extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const TambahAlamat()));
+                              builder: (context) => TambahAlamat()));
                     },
                     child: const Text("+ Tambah Alamat",
                         style: TextStyle(
@@ -106,8 +106,7 @@ class EditProfilAlamat extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const UbahAlamat()),
+                                          builder: (context) => UbahAlamat()),
                                     );
                                   },
                                   child: const Text(

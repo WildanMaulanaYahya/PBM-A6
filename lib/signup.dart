@@ -1,8 +1,10 @@
 // ignore_for_file: unnecessary_const, avoid_print, non_constant_identifier_names
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/bottom_navigation_bar.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:flutter_application_1/bottom_navigation_bar.dart';
+import 'package:flutter_application_1/sign_in.dart';
 // import 'package:flutter_application_1/widget/costum_textfield.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 import 'package:intl/intl.dart';
@@ -17,26 +19,24 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController dateinput = TextEditingController();
-
+  var dateinput = TextEditingController();
   var ctrlemail = TextEditingController();
   var ctrlpass = TextEditingController();
   var ctrlname = TextEditingController();
   var ctrlphn = TextEditingController();
+  var show_password = false;
+  var _image =
+      "https://firebasestorage.googleapis.com/v0/b/pbm-a6.appspot.com/o/profile%2Fprofil.png?alt=media&token=e03e6cab-bbc3-40f5-9b34-d0ba3e13b6b8";
 
   var nama = '';
   var nohp = '';
-  var tgl = '';
+  var formattedDate = '';
+  var email = '';
+  var pass = '';
+  var alamat = 'belum diatur';
 
   final _formKey = GlobalKey<FormState>();
   bool hidePass = true;
-
-  @override
-  void initState() {
-    dateinput.text = ""; //set the initial value of text field
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,17 +142,6 @@ class _SignUpState extends State<SignUp> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
-                          controller: dateinput,
-                          // readOnly: true,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Tanggal lahir tidak boleh kosong';
-                            }
-                            return null;
-                          },
-                          onChanged: (value) {
-                            tgl = value;
-                          },
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
@@ -160,54 +149,20 @@ class _SignUpState extends State<SignUp> {
                               hintText: 'Tanggal Lahir (yyyy-mm-dd)',
                               suffixIcon: IconButton(
                                   onPressed: () async {
-                                    DateTime? pickedDate = await showDatePicker(
-                                        builder: (context, child) {
-                                          return Theme(
-                                            data: Theme.of(context).copyWith(
-                                              colorScheme:
-                                                  const ColorScheme.light(
-                                                primary:
-                                                    const Color(0xff3A8C6E),
-                                                onPrimary: Colors.white,
-                                                onSurface: Colors.black,
-                                              ),
-                                              textButtonTheme:
-                                                  TextButtonThemeData(
-                                                style: TextButton.styleFrom(
-                                                  primary: Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                            child: child!,
-                                          );
-                                        },
-                                        context: context,
-                                        initialDate: DateTime.now(),
-                                        firstDate: DateTime(1945),
-                                        //  DateTime.now()
-                                        //- not to allow to choose before today.
-                                        lastDate: DateTime(2101));
-
-                                    if (pickedDate != null) {
-                                      print(
-                                          pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-                                      String formattedDate =
-                                          DateFormat('yyyy-MM-dd')
-                                              .format(pickedDate);
-                                      print(
-                                          formattedDate); //formatted date output using intl package =>  2021-03-16
-                                      //you can implement different kind of Date Format here according to your requirement
-
-                                      setState(() {
-                                        dateinput.text =
-                                            formattedDate; //set output date to TextField value.
-                                      });
-                                    } else {
-                                      print("Date is not selected");
-                                    }
+                                    await datePicker(context);
                                   },
                                   icon: const Icon(
                                       Icons.calendar_month_outlined))),
+                          controller: dateinput,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Tanggal lahir tidak boleh kosong';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            formattedDate = value;
+                          },
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -229,6 +184,9 @@ class _SignUpState extends State<SignUp> {
                             }
                             return null;
                           },
+                          onChanged: (value) {
+                            email = value;
+                          },
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -241,12 +199,26 @@ class _SignUpState extends State<SignUp> {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               hintText: 'Password',
-                              suffixIcon: const Icon(Icons.visibility)),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    show_password = !show_password;
+                                  });
+                                },
+                                icon: const Icon(Icons.visibility),
+                              )),
+                          obscureText: show_password == false,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Password tidak boleh kosong';
                             }
+                            if (value.length < 6) {
+                              return 'Password harus lebih dari 6 karakter';
+                            }
                             return null;
+                          },
+                          onChanged: (value) {
+                            pass = value;
                           },
                         ),
                       ),
@@ -273,6 +245,43 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
+  Future<void> datePicker(BuildContext context) async {
+    DateTime? pickedDate = await showDatePicker(
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: const Color(0xff3A8C6E),
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  primary: Colors.black,
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        },
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1945),
+        lastDate: DateTime.now());
+
+    if (pickedDate != null) {
+      print(pickedDate);
+      String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+      print(formattedDate);
+
+      setState(() {
+        dateinput.text = formattedDate;
+      });
+    } else {
+      print("Date is not selected");
+    }
+  }
+
   void berhasil(BuildContext context) {
     CoolAlert.show(
         context: context,
@@ -282,9 +291,10 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: const Color.fromARGB(255, 154, 195, 180),
         confirmBtnColor: const Color(0xff3A8C6E),
         onConfirmBtnTap: () {
+          Navigator.of(context, rootNavigator: true).pop();
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
-            return const BottomNav();
+            return BottomNav();
           }));
         });
   }
@@ -311,8 +321,15 @@ class _SignUpState extends State<SignUp> {
 
   void _add_user() async {
     var collection = FirebaseFirestore.instance.collection('user');
-    var res = await collection
-        .add({'nama_lengkap': nama, 'no_telepon': nohp, 'tgl_lahir': tgl});
+
+    var res = await collection.add({
+      'nama_lengkap': nama,
+      'no_telepon': nohp,
+      'tgl_lahir': formattedDate,
+      'email': email,
+      'alamat': alamat,
+      'image': _image,
+    });
     print('berhasil ditambahkan');
     print(res);
   }

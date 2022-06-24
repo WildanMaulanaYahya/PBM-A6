@@ -5,7 +5,8 @@ import 'package:flutter_application_1/widget/costum_textfield2.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 
 class UbahAlamat extends StatelessWidget {
-  const UbahAlamat({Key? key}) : super(key: key);
+  UbahAlamat({Key? key}) : super(key: key);
+  var controller = TextEditingController();
 //
   @override
   Widget build(BuildContext context) {

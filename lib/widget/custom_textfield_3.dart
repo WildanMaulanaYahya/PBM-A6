@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField3 extends StatelessWidget {
-  const CustomTextField3({Key? key}) : super(key: key);
+  final conn;
+  const CustomTextField3({Key? key, required this.conn}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class CustomTextField3 extends StatelessWidget {
         filled: true,
         fillColor: Colors.white,
       ),
+      controller: conn,
     );
   }
 }

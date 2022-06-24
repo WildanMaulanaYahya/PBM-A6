@@ -4,14 +4,12 @@ class CostumButton2 extends StatelessWidget {
   final String nama;
   final String ket;
   final GestureTapCallback onPressed;
-  final double width;
 
   const CostumButton2(
       {Key? key,
       required this.nama,
       required this.ket,
-      required this.onPressed,
-      required this.width})
+      required this.onPressed})
       : super(key: key);
 
   @override
@@ -27,13 +25,12 @@ class CostumButton2 extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ))),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               nama,
               style: const TextStyle(fontFamily: "Poppins"),
             ),
-            SizedBox(width: width),
             Text(
               ket,
               style: const TextStyle(fontFamily: "Poppins"),
