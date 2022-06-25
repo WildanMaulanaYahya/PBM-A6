@@ -89,7 +89,7 @@ class _BeliSekarangState extends State<BeliSekarang> {
                           children: [
                             IconButton(
                                 onPressed: () {
-                                  Get.back();
+                                  Navigator.pop(context);
                                 },
                                 color: Colors.white,
                                 icon: Icon(Icons.arrow_back_outlined)),
@@ -392,8 +392,13 @@ class _BeliSekarangState extends State<BeliSekarang> {
                                     TextButton(
                                         onPressed: () {
                                           addKeranjang();
-                                          Get.to(() => BayarSelesai(),
-                                              arguments: snapshot.data!.id);
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const BayarSelesai()),
+                                          );
+                                          ;
                                         },
                                         style: TextButton.styleFrom(
                                             backgroundColor: Color(0xff3A8C6E),

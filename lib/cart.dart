@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:counter_button/counter_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/beli_sekarang.dart';
 import 'package:flutter_application_1/widget/custom_bottom1.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,8 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   int _counterValue = 0;
   bool isChecked = false;
+  var harga;
+  var total;
 
   @override
   void initState() {
@@ -79,6 +82,11 @@ class _CartState extends State<Cart> {
                             final DocumentSnapshot documentSnapshot =
                                 streamSnapshot.data!.docs[index];
 
+                            var type = "${documentSnapshot['harga']}";
+                            var parse = int.parse(type);
+                            harga = parse;
+                            total = _counterValue * harga;
+
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 30),
                               child: Container(
@@ -115,8 +123,7 @@ class _CartState extends State<Cart> {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             const SizedBox(height: 5),
-                                            Text(
-                                                "Rp ${documentSnapshot['harga']}",
+                                            Text("Rp ${harga}",
                                                 style: TextStyle(
                                                     fontFamily: "Poppins",
                                                     color: Color(0xff73BE12),
@@ -169,60 +176,71 @@ class _CartState extends State<Cart> {
                         child: CircularProgressIndicator(color: Colors.white));
                   }),
               SizedBox(
-                height: 20,
+                height: 220,
               ),
-              Container(
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+              Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
                         children: [
-                          Text(
-                            'Total Pembayaran',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w600),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Total Pembayaran',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: "Poppins",
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Text("${total}",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff73BE12))),
+                            ],
                           ),
-                          Text("harga",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xff73BE12))),
+                          Row(
+                            children: [
+                              Checkbox(
+                                  checkColor: Colors.black,
+                                  activeColor: const Color(0xffE5E5E5),
+                                  value: isChecked,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      isChecked = value!;
+                                    });
+                                  }),
+                              const Text("Semua",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.w600))
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 150),
+                            child: CustomButton(
+                              inputText: 'Checkout',
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => BeliSekarang()),
+                                );
+                              },
+                              color: const Color(0xff3A8C6E),
+                              textcolor: Colors.white,
+                            ),
+                          )
                         ],
                       ),
-                      Row(
-                        children: [
-                          Checkbox(
-                              checkColor: Colors.black,
-                              activeColor: const Color(0xffE5E5E5),
-                              value: isChecked,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  isChecked = value!;
-                                });
-                              }),
-                          const Text("Semua",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w600))
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 150),
-                        child: CustomButton(
-                          inputText: 'Checkout',
-                          onPressed: () {},
-                          color: const Color(0xff3A8C6E),
-                          textcolor: Colors.white,
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
               )
