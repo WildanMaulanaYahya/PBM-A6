@@ -91,6 +91,8 @@ flutter:
     - images/cartsukses.png
     - images/profil.png
     - images/filter.png
+    - images/box.png
+    - images/indomaret.png
     - images/biji4_pagebarang.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

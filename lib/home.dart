@@ -128,8 +128,11 @@ class _HomeState extends State<Home> {
                           builder: (context,
                               AsyncSnapshot<QuerySnapshot> streamSnapshot) {
                             if (streamSnapshot.hasData) {
-                              return ListView.builder(
-                                  scrollDirection: Axis.horizontal,
+                              return GridView.builder(
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          childAspectRatio: 3 / 4,
+                                          crossAxisCount: 3),
                                   shrinkWrap: true,
                                   itemCount: streamSnapshot.data!.docs.length,
                                   itemBuilder: (context, index) {
@@ -138,20 +141,16 @@ class _HomeState extends State<Home> {
                                     return InkWell(
                                       onTap: () => Get.to(() => Barang(),
                                           arguments: documentSnapshot.id),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 10),
-                                        child: Column(
-                                          children: [
-                                            CostumCardHome(
-                                                nameImage:
-                                                    "${documentSnapshot["image"]}",
-                                                name:
-                                                    "${documentSnapshot["nama_barang"]}",
-                                                harga:
-                                                    "Rp ${documentSnapshot["harga"]}"),
-                                          ],
-                                        ),
+                                      child: Column(
+                                        children: [
+                                          CostumCardHome(
+                                              nameImage:
+                                                  "${documentSnapshot["image"]}",
+                                              name:
+                                                  "${documentSnapshot["nama_barang"]}",
+                                              harga:
+                                                  "Rp ${documentSnapshot["harga"]}"),
+                                        ],
                                       ),
                                     );
                                   });

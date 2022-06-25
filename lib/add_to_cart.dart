@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_button/counter_button.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,12 @@ class AddtoCart extends StatefulWidget {
 
 class _AddtoCart extends State<AddtoCart> {
   int _counterValue = 0;
+  var image;
+  var stok;
+  var harga;
+  var nama;
+  var total;
+  var uid = FirebaseAuth.instance.currentUser!.uid;
 
   @override
   void initState() {
@@ -39,6 +46,16 @@ class _AddtoCart extends State<AddtoCart> {
           var documentSnapshot = snapshot.data!.data();
           print(documentSnapshot);
 
+          nama = "${(documentSnapshot as Map<String, dynamic>)['nama_barang']}";
+          image = "${(documentSnapshot as Map<String, dynamic>)['image']}";
+          stok = (documentSnapshot as Map<String, dynamic>)['stok'];
+
+          harga = "${(documentSnapshot as Map<String, dynamic>)['harga']}";
+          var csharga = int.parse(harga);
+          total = _counterValue * csharga;
+          var cststok = "${stok}";
+          var castStok = int.parse(cststok);
+
           return SizedBox(
             height: 314,
             child: Padding(
@@ -57,7 +74,7 @@ class _AddtoCart extends State<AddtoCart> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Rp ${(documentSnapshot as Map<String, dynamic>)['harga']}",
+                            "Rp ${total}",
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 color: Color(0xff4F9E2A),
@@ -65,7 +82,7 @@ class _AddtoCart extends State<AddtoCart> {
                                 fontWeight: FontWeight.w600),
                           ),
                           Text(
-                            'Stock: ${(documentSnapshot as Map<String, dynamic>)['stok']}',
+                            'Stock: ${castStok}',
                             style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 11,
@@ -100,6 +117,7 @@ class _AddtoCart extends State<AddtoCart> {
                     child: TextButton(
                         onPressed: () {
                           Navigator.pop(context);
+                          addtoCard();
                         },
                         style: TextButton.styleFrom(
                             backgroundColor: const Color(0xff3A8C6E),
@@ -120,5 +138,21 @@ class _AddtoCart extends State<AddtoCart> {
             ),
           );
         });
+  }
+
+  addtoCard() async {
+    try {
+      var collection = FirebaseFirestore.instance.collection('cart');
+      var res = await collection.add({
+        'nama': nama,
+        'image': image,
+        'harga': total,
+        'jumlah': _counterValue,
+        'uid': uid
+      });
+      print(res);
+    } catch (e) {
+      print('gagal ditambahkan');
+    }
   }
 }

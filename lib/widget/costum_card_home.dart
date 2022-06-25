@@ -20,6 +20,7 @@ class CostumCardHome extends StatelessWidget {
       children: [
         Container(
           height: 80,
+          width: 80,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.network(

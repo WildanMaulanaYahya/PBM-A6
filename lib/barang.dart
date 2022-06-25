@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/beli_sekarang.dart';
 import 'package:flutter_application_1/review.dart';
 import 'package:flutter_application_1/widget/bintang1.dart';
 import 'package:flutter_application_1/widget/bintang2.dart';
@@ -159,13 +160,8 @@ class _BarangState extends State<Barang> {
                             children: [
                               const SizedBox(width: 10),
                               TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Review()),
-                                  );
-                                },
+                                onPressed: () => Get.to(() => Review(),
+                                    arguments: snapshot.data!.id),
                                 child: const Text(
                                   'Review',
                                   style: TextStyle(
@@ -199,7 +195,8 @@ class _BarangState extends State<Barang> {
                               color: const Color(0xff3A8C6E),
                               width: 132,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () => Get.to(() => BeliSekarang(),
+                                    arguments: snapshot.data!.id),
                                 child: const Text(
                                   'Beli Sekarang',
                                   style: TextStyle(
